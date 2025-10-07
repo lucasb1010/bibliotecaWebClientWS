@@ -1,29 +1,37 @@
+
 package publicadores;
 
-public class DtUsuario {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 
-    private String correo;
-    private String nombre;
-    private String password;
 
-    // Constructor con parámetros
-    protected DtUsuario(String nombre, String correo, String password) {
-        super();
-        this.nombre = nombre;
-        this.correo = correo;
-        this.password = password;
-    }
+/**
+ * <p>Clase Java para dtUsuario complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="dtUsuario"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "dtUsuario")
+@XmlSeeAlso({
+    DtLector.class,
+    DtBibliotecario.class
+})
+public abstract class DtUsuario {
 
-    // Getters
-    public String getCorreo() {
-        return correo;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }

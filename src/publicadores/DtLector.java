@@ -1,36 +1,34 @@
+
 package publicadores;
 
-public class DtLector extends publicadores.DtUsuario {
-    
-    // Atributos
-    private String direccion;
-    private DtFecha fechaRegistro;
-    private boolean activo;
-    private RedBiblioteca redBiblioteca;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-    // Constructor con parámetros
-    public DtLector(String nombre, String correo, String password, String direccion, DtFecha fechaRegistro, boolean activo, RedBiblioteca redBiblioteca) {
-		super(nombre, correo, password);
-        this.direccion = direccion;
-        this.fechaRegistro = fechaRegistro;
-        this.activo = activo;
-        this.redBiblioteca = redBiblioteca;
-	}
 
-    // Getters
-    public String getDireccion() {
-        return this.direccion;
-    }
+/**
+ * <p>Clase Java para dtLector complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="dtLector"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://publicadores/}dtUsuario"&gt;
+ *       &lt;sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "dtLector")
+public class DtLector
+    extends DtUsuario
+{
 
-    public DtFecha getFechaRegistro() {
-        return this.fechaRegistro;
-    }
-    
-    public boolean getActivo() {
-        return this.activo;
-    }
 
-    public RedBiblioteca getRedBiblioteca() {
-        return this.redBiblioteca;
-    }
 }

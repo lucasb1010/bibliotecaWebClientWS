@@ -1,31 +1,34 @@
+
 package publicadores;
 
-public class DtLibro extends publicadores.DtMaterial{
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-    // Atributos específicos de Libro según el diagrama UML
-    private String titulo;
-    private String cantidadPaginas;
 
-    // Constructor con parámetros (siguiendo el patrón de DtArticulo)
-    public DtLibro(String id, DtFecha fechaIngreso, String titulo, String cantidadPaginas) {
-        super(fechaIngreso); // Llama al constructor de DtMaterial con id y fechaIngreso
-        this.titulo = titulo;
-        this.cantidadPaginas = cantidadPaginas;
-    }
+/**
+ * <p>Clase Java para dtLibro complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="dtLibro"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://publicadores/}dtMaterial"&gt;
+ *       &lt;sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "dtLibro")
+public class DtLibro
+    extends DtMaterial
+{
 
-    // Constructor con parámetros (sin ID)
-    public DtLibro(DtFecha fechaIngreso, String titulo, String cantidadPaginas) {
-        super(fechaIngreso);
-        this.titulo = titulo;
-        this.cantidadPaginas = cantidadPaginas;
-    }
 
-    // Getters
-    public String getTitulo() {
-        return this.titulo;
-    }
-    
-    public String getCantidadPaginas() {
-        return this.cantidadPaginas;
-    }
 }

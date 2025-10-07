@@ -1,39 +1,34 @@
+
 package publicadores;
 
-public class DtArticulo extends publicadores.DtMaterial{
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-        // Atributos específicos de Articulo según el diagrama UML
-    private String descripcion;
-    private float pesoKg;
-    private String dimensiones;
 
-    // Constructor con parámetros (siguiendo el patrón de DtLector)
-    public DtArticulo(String id, DtFecha fechaIngreso, String descripcion, float pesoKg, String dimensiones) {
-        super(fechaIngreso); // Llama al constructor de DtMaterial con id y fechaIngreso
-        this.descripcion = descripcion;
-        this.pesoKg = pesoKg;
-        this.dimensiones = dimensiones;
-    }
+/**
+ * <p>Clase Java para dtArticulo complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="dtArticulo"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://publicadores/}dtMaterial"&gt;
+ *       &lt;sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "dtArticulo")
+public class DtArticulo
+    extends DtMaterial
+{
 
-    // Constructor con parámetros (sin ID)
-    public DtArticulo(DtFecha fechaIngreso, String descripcion, float pesoKg, String dimensiones) {
-        super(fechaIngreso);
-        this.descripcion = descripcion;
-        this.pesoKg = pesoKg;
-        this.dimensiones = dimensiones;
-    }
-
-    // Getters
-    public String getDescripcion() {
-        return this.descripcion;
-    }
-    
-    public float getPesoKg() {
-        return this.pesoKg;
-    }
-    
-    public String getDimensiones() {
-        return this.dimensiones;
-    }
 
 }
