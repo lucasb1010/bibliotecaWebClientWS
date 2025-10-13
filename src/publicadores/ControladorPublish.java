@@ -26,6 +26,22 @@ public interface ControladorPublish {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns publicadores.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasResponse")
+    public StringArray obtenerMaterialesPorRangoFechas(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtFecha arg0,
+        @WebParam(name = "arg1", partName = "arg1")
+        DtFecha arg1);
+
+    /**
+     * 
      * @return
      *     returns publicadores.StringArray
      */
@@ -39,73 +55,10 @@ public interface ControladorPublish {
      * @param arg0
      */
     @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/agregarLectorRequest", output = "http://publicadores/ControladorPublish/agregarLectorResponse")
-    public void agregarLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtLector arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/agregarLibroRequest", output = "http://publicadores/ControladorPublish/agregarLibroResponse")
-    public void agregarLibro(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtLibro arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/agregarArticuloRequest", output = "http://publicadores/ControladorPublish/agregarArticuloResponse")
-    public void agregarArticulo(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtArticulo arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
     @Action(input = "http://publicadores/ControladorPublish/agregarPrestamoRequest", output = "http://publicadores/ControladorPublish/agregarPrestamoResponse")
     public void agregarPrestamo(
         @WebParam(name = "arg0", partName = "arg0")
         DtPrestamo arg0);
-
-    /**
-     * 
-     * @return
-     *     returns publicadores.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/listarLectoresRequest", output = "http://publicadores/ControladorPublish/listarLectoresResponse")
-    public StringArray listarLectores();
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/suspenderUsuarioRequest", output = "http://publicadores/ControladorPublish/suspenderUsuarioResponse")
-    public void suspenderUsuario(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
-    public void cambiarZona(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0,
-        @WebParam(name = "arg1", partName = "arg1")
-        String arg1);
 
     /**
      * 
@@ -134,8 +87,28 @@ public interface ControladorPublish {
      */
     @WebMethod
     @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/listarLectoresRequest", output = "http://publicadores/ControladorPublish/listarLectoresResponse")
+    public StringArray listarLectores();
+
+    /**
+     * 
+     * @return
+     *     returns publicadores.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
     @Action(input = "http://publicadores/ControladorPublish/listarIdsMaterialesRequest", output = "http://publicadores/ControladorPublish/listarIdsMaterialesResponse")
     public StringArray listarIdsMateriales();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/ControladorPublish/agregarLectorRequest", output = "http://publicadores/ControladorPublish/agregarLectorResponse")
+    public void agregarLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtLector arg0);
 
     /**
      * 
@@ -149,19 +122,23 @@ public interface ControladorPublish {
 
     /**
      * 
-     * @param arg1
      * @param arg0
-     * @return
-     *     returns publicadores.StringArray
      */
     @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasResponse")
-    public StringArray obtenerMaterialesPorRangoFechas(
+    @Action(input = "http://publicadores/ControladorPublish/agregarLibroRequest", output = "http://publicadores/ControladorPublish/agregarLibroResponse")
+    public void agregarLibro(
         @WebParam(name = "arg0", partName = "arg0")
-        DtFecha arg0,
-        @WebParam(name = "arg1", partName = "arg1")
-        DtFecha arg1);
+        DtLibro arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/ControladorPublish/agregarArticuloRequest", output = "http://publicadores/ControladorPublish/agregarArticuloResponse")
+    public void agregarArticulo(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtArticulo arg0);
 
     /**
      * 
@@ -172,5 +149,28 @@ public interface ControladorPublish {
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/ControladorPublish/listarMaterialesRequest", output = "http://publicadores/ControladorPublish/listarMaterialesResponse")
     public StringArray listarMateriales();
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
+    public void cambiarZona(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0,
+        @WebParam(name = "arg1", partName = "arg1")
+        String arg1);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/ControladorPublish/suspenderUsuarioRequest", output = "http://publicadores/ControladorPublish/suspenderUsuarioResponse")
+    public void suspenderUsuario(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0);
 
 }

@@ -17,4 +17,14 @@
     <url-pattern>/consultarMateriales</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ConsultarUsuarios</servlet-name>
+    <servlet-class>servlets.ConsultarUsuarios</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ConsultarUsuarios</servlet-name>
+    <url-pattern>/consultar-usuarios</url-pattern>
+  </servlet-mapping>
+
 </web-app>
