@@ -51,10 +51,11 @@
                                 <div class="user-info">
                                     <h4><%= lector %></h4>
                                     <span class="user-type">Lector</span>
+                                    <span class="user-status active">Activo</span>
                                 </div>
                                 <div class="user-actions">
                                     <button class="btn btn-info" onclick="verDetalles('<%= lector %>', 'lector')">Ver Detalles</button>
-                                    <button class="btn btn-warning" onclick="suspenderUsuario('<%= lector %>')">Suspender</button>
+                                    <button class="btn btn-warning btn-toggle" onclick="toggleUsuario('<%= lector %>')">Suspender</button>
                                 </div>
                             </div>
                         <% 
@@ -104,6 +105,9 @@
         </main>
     </div>
 
+    <script>
+        var APP_CTX = '<%= request.getContextPath() %>';
+    </script>
     <script src="JS/scripts.js"></script>
     <script src="JS/usuarios.js"></script>
 </body>

@@ -28,57 +28,24 @@ public interface ControladorPublish {
      * 
      * @param arg1
      * @param arg0
-     * @return
-     *     returns publicadores.StringArray
      */
     @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasResponse")
-    public StringArray obtenerMaterialesPorRangoFechas(
+    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
+    public void cambiarZona(
         @WebParam(name = "arg0", partName = "arg0")
-        DtFecha arg0,
+        String arg0,
         @WebParam(name = "arg1", partName = "arg1")
-        DtFecha arg1);
-
-    /**
-     * 
-     * @return
-     *     returns publicadores.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesResponse")
-    public StringArray obtenerMaterialesConPrestamosPendientes();
+        String arg1);
 
     /**
      * 
      * @param arg0
      */
     @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/agregarPrestamoRequest", output = "http://publicadores/ControladorPublish/agregarPrestamoResponse")
-    public void agregarPrestamo(
+    @Action(input = "http://publicadores/ControladorPublish/suspenderUsuarioRequest", output = "http://publicadores/ControladorPublish/suspenderUsuarioResponse")
+    public void suspenderUsuario(
         @WebParam(name = "arg0", partName = "arg0")
-        DtPrestamo arg0);
-
-    /**
-     * 
-     * @return
-     *     returns publicadores.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerTodasLasZonasRequest", output = "http://publicadores/ControladorPublish/obtenerTodasLasZonasResponse")
-    public StringArray obtenerTodasLasZonas();
-
-    /**
-     * 
-     * @return
-     *     returns publicadores.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/listarBibliotecariosRequest", output = "http://publicadores/ControladorPublish/listarBibliotecariosResponse")
-    public StringArray listarBibliotecarios();
+        String arg0);
 
     /**
      * 
@@ -97,8 +64,8 @@ public interface ControladorPublish {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/listarIdsMaterialesRequest", output = "http://publicadores/ControladorPublish/listarIdsMaterialesResponse")
-    public StringArray listarIdsMateriales();
+    @Action(input = "http://publicadores/ControladorPublish/obtenerTodasLasZonasRequest", output = "http://publicadores/ControladorPublish/obtenerTodasLasZonasResponse")
+    public StringArray obtenerTodasLasZonas();
 
     /**
      * 
@@ -147,30 +114,63 @@ public interface ControladorPublish {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ControladorPublish/listarMaterialesRequest", output = "http://publicadores/ControladorPublish/listarMaterialesResponse")
-    public StringArray listarMateriales();
+    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesResponse")
+    public StringArray obtenerMaterialesConPrestamosPendientes();
 
     /**
      * 
      * @param arg1
      * @param arg0
+     * @return
+     *     returns publicadores.StringArray
      */
     @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
-    public void cambiarZona(
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesPorRangoFechasResponse")
+    public StringArray obtenerMaterialesPorRangoFechas(
         @WebParam(name = "arg0", partName = "arg0")
-        String arg0,
+        DtFecha arg0,
         @WebParam(name = "arg1", partName = "arg1")
-        String arg1);
+        DtFecha arg1);
+
+    /**
+     * 
+     * @return
+     *     returns publicadores.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/listarBibliotecariosRequest", output = "http://publicadores/ControladorPublish/listarBibliotecariosResponse")
+    public StringArray listarBibliotecarios();
 
     /**
      * 
      * @param arg0
      */
     @WebMethod
-    @Action(input = "http://publicadores/ControladorPublish/suspenderUsuarioRequest", output = "http://publicadores/ControladorPublish/suspenderUsuarioResponse")
-    public void suspenderUsuario(
+    @Action(input = "http://publicadores/ControladorPublish/agregarPrestamoRequest", output = "http://publicadores/ControladorPublish/agregarPrestamoResponse")
+    public void agregarPrestamo(
         @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
+        DtPrestamo arg0);
+
+    /**
+     * 
+     * @return
+     *     returns publicadores.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/listarMaterialesRequest", output = "http://publicadores/ControladorPublish/listarMaterialesResponse")
+    public StringArray listarMateriales();
+
+    /**
+     * 
+     * @return
+     *     returns publicadores.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ControladorPublish/listarIdsMaterialesRequest", output = "http://publicadores/ControladorPublish/listarIdsMaterialesResponse")
+    public StringArray listarIdsMateriales();
 
 }

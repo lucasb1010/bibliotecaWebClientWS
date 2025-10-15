@@ -79,13 +79,50 @@ function verDetalles(usuario, tipo) {
     // Aquí podrías implementar un modal más elaborado
 }
 
-function suspenderUsuario(usuario) {
-    if (confirm(`¿Estás seguro de que quieres suspender a ${usuario}?`)) {
-        // Aquí harías la llamada al servicio web para suspender
-        alert(`${usuario} ha sido suspendido`);
-        // Recargar la página o actualizar la lista
-        location.reload();
-    }
+function toggleUsuario(usuario) {
+    const selector = `.user-card[data-name="${usuario.toLowerCase()}"]`;
+    const card = document.querySelector(selector);
+    const status = card ? card.querySelector('.user-status') : null;
+    const estaActivo = status ? status.classList.contains('active') : true;
+    const accion = estaActivo ? 'suspender' : 'activar';
+    const confirmMsg = estaActivo ? `¿Suspender a ${usuario}?` : `¿Activar a ${usuario}?`;
+    if (!confirm(confirmMsg)) return;
+
+    const url = (typeof APP_CTX !== 'undefined' ? APP_CTX : '') + `/consultar-usuarios?action=${accion}`;
+    fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `correo=${encodeURIComponent(usuario)}`
+    }).then(async res => {
+        const text = await res.text();
+        if (!res.ok) throw new Error(text || 'Error al cambiar estado');
+
+        if (card) {
+            // Toggle estado visual
+            if (status) {
+                if (estaActivo) {
+                    status.textContent = 'Inactivo';
+                    status.classList.remove('active');
+                    status.classList.add('inactive');
+                    card.style.opacity = '0.6';
+                } else {
+                    status.textContent = 'Activo';
+                    status.classList.remove('inactive');
+                    status.classList.add('active');
+                    card.style.opacity = '1';
+                }
+            }
+            const btn = card.querySelector('.btn-toggle');
+            if (btn) {
+                btn.textContent = estaActivo ? 'Activar' : 'Suspender';
+                // mantener clase de color acorde
+                btn.classList.toggle('btn-warning', !estaActivo);
+                btn.classList.toggle('btn-success', estaActivo);
+            }
+        }
+        updateStats();
+        alert(`${usuario} ahora está ${estaActivo ? 'inactivo' : 'activo'}`);
+    }).catch(err => alert(err.message));
 }
 
 function addAnimations() {
