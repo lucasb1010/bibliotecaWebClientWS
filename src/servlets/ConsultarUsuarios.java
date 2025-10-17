@@ -1,11 +1,11 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import publicadores.ControladorPublish;
 import publicadores.ControladorPublishService;
-import publicadores.StringArray;
 
 public class ConsultarUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -15,11 +15,11 @@ public class ConsultarUsuarios extends HttpServlet {
             ControladorPublish port = service.getControladorPublishPort();
             
             // Obtener lectores y bibliotecarios
-            StringArray lectoresRes = port.listarLectores();
-            StringArray bibliotecariosRes = port.listarBibliotecarios();
+            List<String> lectoresRes = port.listarLectores();
+            List<String> bibliotecariosRes = port.listarBibliotecarios();
             
-            String[] lectores = lectoresRes == null ? new String[0] : lectoresRes.getItem().toArray(new String[0]);
-            String[] bibliotecarios = bibliotecariosRes == null ? new String[0] : bibliotecariosRes.getItem().toArray(new String[0]);
+            String[] lectores = lectoresRes == null ? new String[0] : lectoresRes.toArray(new String[0]);
+            String[] bibliotecarios = bibliotecariosRes == null ? new String[0] : bibliotecariosRes.toArray(new String[0]);
             
             // Pasar datos a la JSP
             req.setAttribute("lectores", lectores);

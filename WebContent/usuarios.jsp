@@ -13,8 +13,8 @@
         <header class="header">
             <h1>👥 Usuarios de la Biblioteca</h1>
             <nav class="nav">
-                <a href="index.jsp" class="nav-link">🏠 Inicio</a>
-                <a href="consultar-materiales" class="nav-link">📚 Materiales</a>
+                <a href="consultarMateriales" class="nav-link">📚 Ver Materiales</a>
+                <a href="agregarMaterial" class="nav-link">➕ Agregar Material</a>
             </nav>
         </header>
 

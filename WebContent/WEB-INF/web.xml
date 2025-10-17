@@ -27,4 +27,14 @@
     <url-pattern>/consultar-usuarios</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AgregarMaterial</servlet-name>
+    <servlet-class>servlets.AgregarMaterial</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AgregarMaterial</servlet-name>
+    <url-pattern>/agregarMaterial</url-pattern>
+  </servlet-mapping>
+
 </web-app>

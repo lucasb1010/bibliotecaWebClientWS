@@ -3,20 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <title>Materiales</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+      .navigation {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+      }
+      .navigation a {
+        color: #4CAF50;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      .navigation a:hover {
+        background-color: #e8f5e8;
+      }
+      .add-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      .add-button:hover {
+        background-color: #45a049;
+      }
+      .materials-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h2>Materiales</h2>
+    <div class="materials-container">
+      <div class="navigation">
+        <a href="consultarMateriales">Ver Materiales</a>
+        <a href="consultar-usuarios">Ver Usuarios</a>
+        <a href="agregarMaterial">Agregar Material</a>
+      </div>
+      
+      <h2>Materiales de la Biblioteca</h2>
+      <a href="agregarMaterial" class="add-button">➕ Agregar Nuevo Material</a>
+      
+      <% if (request.getAttribute("mensaje") != null) { %>
+        <div style="background-color: #e7f3ff; color: #0066cc; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0066cc;">
+          <%= request.getAttribute("mensaje") %>
+        </div>
+      <% } %>
+      
     <ul>
       <%
         String[] materiales = (String[]) request.getAttribute("materiales");
         if (materiales != null && materiales.length > 0) {
           for (String m : materiales) { out.println("<li>" + m + "</li>"); }
         } else {
-          out.println("<li>Sin datos</li>");
+          out.println("<li style='color: #666; font-style: italic;'>No hay materiales registrados en la biblioteca</li>");
         }
       %>
     </ul>
+    </div>
   </body>
 </html>
-
-

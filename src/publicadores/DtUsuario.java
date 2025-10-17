@@ -28,8 +28,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "dtUsuario")
 @XmlSeeAlso({
-    DtLector.class,
-    DtBibliotecario.class
+    DtBibliotecario.class,
+    DtLector.class
 })
 public abstract class DtUsuario {
 
