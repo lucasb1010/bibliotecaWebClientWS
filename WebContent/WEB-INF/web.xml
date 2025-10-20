@@ -37,4 +37,24 @@
     <url-pattern>/agregarMaterial</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AgregarPrestamo</servlet-name>
+    <servlet-class>servlets.AgregarPrestamo</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AgregarPrestamo</servlet-name>
+    <url-pattern>/agregarPrestamo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ListarPrestamos</servlet-name>
+    <servlet-class>servlets.ListarPrestamos</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListarPrestamos</servlet-name>
+    <url-pattern>/listarPrestamos</url-pattern>
+  </servlet-mapping>
+
 </web-app>

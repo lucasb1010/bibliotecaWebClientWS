@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para stringArray complex type.
+ * <p>Clase Java para listarPrestamosResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="stringArray"&gt;
+ * &lt;complexType name="listarPrestamosResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="item" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,27 +29,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "stringArray", namespace = "http://jaxb.dev.java.net/array", propOrder = {
-    "item"
+@XmlType(name = "listarPrestamosResponse", propOrder = {
+    "_return"
 })
-public class StringArray {
+public class ListarPrestamosResponse {
 
-    @XmlElement(nillable = true)
-    protected List<String> item;
+    @XmlElement(name = "return", nillable = true)
+    protected List<String> _return;
 
     /**
-     * Gets the value of the item property.
+     * Gets the value of the return property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the item property.
+     * This is why there is not a <CODE>set</CODE> method for the return property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getItem().add(newItem);
+     *    getReturn().add(newItem);
      * </pre>
      * 
      * 
@@ -59,11 +59,11 @@ public class StringArray {
      * 
      * 
      */
-    public List<String> getItem() {
-        if (item == null) {
-            item = new ArrayList<String>();
+    public List<String> getReturn() {
+        if (_return == null) {
+            _return = new ArrayList<String>();
         }
-        return this.item;
+        return this._return;
     }
 
 }

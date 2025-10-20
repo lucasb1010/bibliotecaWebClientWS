@@ -129,6 +129,83 @@
         .navigation a:hover {
             text-decoration: underline;
         }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .form-container {
+                max-width: 100%;
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .navigation a {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+            
+            input[type="text"],
+            input[type="number"],
+            input[type="date"],
+            select,
+            textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .form-container {
+                margin: 5px;
+                padding: 15px;
+            }
+            
+            .navigation a {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
     </style>
 </head>
 <body>

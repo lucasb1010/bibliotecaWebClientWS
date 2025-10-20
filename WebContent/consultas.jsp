@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materiales</title>
     <link rel="stylesheet" href="CSS/styles.css">
     <style>
@@ -40,6 +41,82 @@
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
+      }
+      
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        .materials-container {
+          max-width: 100%;
+          padding: 15px;
+          margin: 10px;
+        }
+        
+        .navigation {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+          padding: 10px;
+        }
+        
+        .navigation a {
+          margin: 5px 0;
+          padding: 10px 15px;
+          font-size: 14px;
+          display: block;
+        }
+        
+        h2 {
+          font-size: 1.8rem;
+          text-align: center;
+        }
+        
+        .add-button {
+          width: 100%;
+          margin: 10px 0;
+          padding: 12px;
+        }
+        
+        ul {
+          padding-left: 20px;
+        }
+        
+        li {
+          margin-bottom: 10px;
+          padding: 10px;
+          background-color: #f9f9f9;
+          border-radius: 5px;
+          word-wrap: break-word;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .materials-container {
+          padding: 10px;
+          margin: 5px;
+        }
+        
+        .navigation {
+          padding: 8px;
+        }
+        
+        .navigation a {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
+        
+        .add-button {
+          padding: 10px;
+          font-size: 14px;
+        }
+        
+        li {
+          font-size: 14px;
+          padding: 8px;
+        }
       }
     </style>
   </head>

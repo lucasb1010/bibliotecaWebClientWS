@@ -40,6 +40,7 @@ public class ObjectFactory {
     private final static QName _DtFecha_QNAME = new QName("http://publicadores/", "dtFecha");
     private final static QName _DtLibro_QNAME = new QName("http://publicadores/", "dtLibro");
     private final static QName _DtMaterial_QNAME = new QName("http://publicadores/", "dtMaterial");
+    private final static QName _DtPrestamo_QNAME = new QName("http://publicadores/", "dtPrestamo");
     private final static QName _ListarBibliotecarios_QNAME = new QName("http://publicadores/", "listarBibliotecarios");
     private final static QName _ListarBibliotecariosResponse_QNAME = new QName("http://publicadores/", "listarBibliotecariosResponse");
     private final static QName _ListarIdsMateriales_QNAME = new QName("http://publicadores/", "listarIdsMateriales");
@@ -48,6 +49,8 @@ public class ObjectFactory {
     private final static QName _ListarLectoresResponse_QNAME = new QName("http://publicadores/", "listarLectoresResponse");
     private final static QName _ListarMateriales_QNAME = new QName("http://publicadores/", "listarMateriales");
     private final static QName _ListarMaterialesResponse_QNAME = new QName("http://publicadores/", "listarMaterialesResponse");
+    private final static QName _ListarPrestamos_QNAME = new QName("http://publicadores/", "listarPrestamos");
+    private final static QName _ListarPrestamosResponse_QNAME = new QName("http://publicadores/", "listarPrestamosResponse");
     private final static QName _ObtenerMaterialesConPrestamosPendientes_QNAME = new QName("http://publicadores/", "obtenerMaterialesConPrestamosPendientes");
     private final static QName _ObtenerMaterialesConPrestamosPendientesResponse_QNAME = new QName("http://publicadores/", "obtenerMaterialesConPrestamosPendientesResponse");
     private final static QName _ObtenerMaterialesPorRangoFechas_QNAME = new QName("http://publicadores/", "obtenerMaterialesPorRangoFechas");
@@ -193,6 +196,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtPrestamo }
+     * 
+     */
+    public DtPrestamo createDtPrestamo() {
+        return new DtPrestamo();
+    }
+
+    /**
      * Create an instance of {@link ListarBibliotecarios }
      * 
      */
@@ -257,6 +268,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarPrestamos }
+     * 
+     */
+    public ListarPrestamos createListarPrestamos() {
+        return new ListarPrestamos();
+    }
+
+    /**
+     * Create an instance of {@link ListarPrestamosResponse }
+     * 
+     */
+    public ListarPrestamosResponse createListarPrestamosResponse() {
+        return new ListarPrestamosResponse();
+    }
+
+    /**
      * Create an instance of {@link ObtenerMaterialesConPrestamosPendientes }
      * 
      */
@@ -318,14 +345,6 @@ public class ObjectFactory {
      */
     public SuspenderUsuarioResponse createSuspenderUsuarioResponse() {
         return new SuspenderUsuarioResponse();
-    }
-
-    /**
-     * Create an instance of {@link DtPrestamo }
-     * 
-     */
-    public DtPrestamo createDtPrestamo() {
-        return new DtPrestamo();
     }
 
     /**
@@ -553,6 +572,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DtPrestamo }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DtPrestamo }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "dtPrestamo")
+    public JAXBElement<DtPrestamo> createDtPrestamo(DtPrestamo value) {
+        return new JAXBElement<DtPrestamo>(_DtPrestamo_QNAME, DtPrestamo.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarBibliotecarios }{@code >}
      * 
      * @param value
@@ -654,6 +686,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://publicadores/", name = "listarMaterialesResponse")
     public JAXBElement<ListarMaterialesResponse> createListarMaterialesResponse(ListarMaterialesResponse value) {
         return new JAXBElement<ListarMaterialesResponse>(_ListarMaterialesResponse_QNAME, ListarMaterialesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarPrestamos }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarPrestamos }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarPrestamos")
+    public JAXBElement<ListarPrestamos> createListarPrestamos(ListarPrestamos value) {
+        return new JAXBElement<ListarPrestamos>(_ListarPrestamos_QNAME, ListarPrestamos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarPrestamosResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarPrestamosResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarPrestamosResponse")
+    public JAXBElement<ListarPrestamosResponse> createListarPrestamosResponse(ListarPrestamosResponse value) {
+        return new JAXBElement<ListarPrestamosResponse>(_ListarPrestamosResponse_QNAME, ListarPrestamosResponse.class, null, value);
     }
 
     /**
