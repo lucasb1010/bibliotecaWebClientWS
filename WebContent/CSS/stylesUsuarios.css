@@ -1,4 +1,14 @@
 /* Estilos específicos para la página de usuarios */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

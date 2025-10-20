@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios de la Biblioteca</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/usuarios.css">
+    <link rel="stylesheet" href="CSS/stylesUsuarios.css">
 </head>
 <body>
     <div class="container">
@@ -104,7 +104,6 @@
         </main>
     </div>
 
-    <script src="JS/scripts.js"></script>
-    <script src="JS/usuarios.js"></script>
+    <script src="JS/scriptsUsuarios.js"></script>
 </body>
 </html>

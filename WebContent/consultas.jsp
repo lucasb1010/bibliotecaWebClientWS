@@ -3,45 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Materiales</title>
-    <link rel="stylesheet" href="CSS/styles.css">
-    <style>
-      .navigation {
-        text-align: center;
-        margin-bottom: 30px;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 5px;
-      }
-      .navigation a {
-        color: #4CAF50;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        padding: 8px 16px;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-      }
-      .navigation a:hover {
-        background-color: #e8f5e8;
-      }
-      .add-button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-bottom: 20px;
-      }
-      .add-button:hover {
-        background-color: #45a049;
-      }
-      .materials-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="CSS/stylesConsultas.css">
   </head>
   <body>
     <div class="materials-container">
