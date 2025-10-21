@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.HashSet" %>
+<%@ page import="java.util.Set" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,17 +46,35 @@
                     <div class="users-list" id="lectores-list">
                         <%
                             String[] lectores = (String[]) request.getAttribute("lectores");
+                            String[] lectoresSuspendidos = (String[]) request.getAttribute("lectoresSuspendidos");
+                            
+                            // Crear un Set para verificar rápidamente si un lector está suspendido
+                            Set<String> suspendidos = new HashSet<>();
+                            if (lectoresSuspendidos != null) {
+                                for (String lectorSuspendido : lectoresSuspendidos) {
+                                    suspendidos.add(lectorSuspendido);
+                                }
+                            }
+                            
                             if (lectores != null && lectores.length > 0) {
-                                for (String lector : lectores) { 
+                                for (String lector : lectores) {
+                                    boolean estaSuspendido = suspendidos.contains(lector);
+                                    String estadoClase = estaSuspendido ? "inactive" : "active";
+                                    String estadoTexto = estaSuspendido ? "Inactivo" : "Activo";
+                                    String botonTexto = estaSuspendido ? "Activar" : "Suspender";
+                                    String botonClase = estaSuspendido ? "btn-success" : "btn-warning";
+                                    String cardStyle = estaSuspendido ? "style=\"opacity: 0.6;\"" : "";
                         %>
-                            <div class="user-card" data-name="<%= lector.toLowerCase() %>">
+                            <div class="user-card" data-name="<%= lector.toLowerCase() %>" <%= cardStyle %>>
                                 <div class="user-info">
                                     <h4><%= lector %></h4>
                                     <span class="user-type">Lector</span>
+                                    <span class="user-status <%= estadoClase %>"><%= estadoTexto %></span>
                                 </div>
                                 <div class="user-actions">
                                     <button class="btn btn-info" onclick="verDetalles('<%= lector %>', 'lector')">Ver Detalles</button>
-                                    <button class="btn btn-warning" onclick="suspenderUsuario('<%= lector %>')">Suspender</button>
+                                    <button class="btn btn-primary" onclick="cambiarZonaLector('<%= lector %>')">Cambiar Zona</button>
+                                    <button class="btn <%= botonClase %> btn-toggle" onclick="toggleUsuario('<%= lector %>')"><%= botonTexto %></button>
                                 </div>
                             </div>
                         <% 
@@ -87,7 +107,6 @@
                                 </div>
                                 <div class="user-actions">
                                     <button class="btn btn-info" onclick="verDetalles('<%= bibliotecario %>', 'bibliotecario')">Ver Detalles</button>
-                                    <button class="btn btn-warning" onclick="suspenderUsuario('<%= bibliotecario %>')">Suspender</button>
                                 </div>
                             </div>
                         <% 
@@ -104,6 +123,25 @@
         </main>
     </div>
 
+    <!-- Modal para cambiar zona -->
+    <div id="modalCambiarZona" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModalZona()">&times;</span>
+            <h2>Cambiar Zona</h2>
+            <p id="modalUsuarioNombre"></p>
+            <div id="zonasContainer" class="zonas-container"></div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="cerrarModalZona()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de notificaciones toast -->
+    <div id="toast-container"></div>
+
+    <script>
+        var APP_CTX = '<%= request.getContextPath() %>';
+    </script>
     <script src="JS/scripts.js"></script>
     <script src="JS/usuarios.js"></script>
 </body>

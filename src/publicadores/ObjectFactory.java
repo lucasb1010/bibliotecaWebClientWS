@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Exception_QNAME = new QName("http://publicadores/", "Exception");
     private final static QName _AgregarArticulo_QNAME = new QName("http://publicadores/", "agregarArticulo");
     private final static QName _AgregarArticuloResponse_QNAME = new QName("http://publicadores/", "agregarArticuloResponse");
     private final static QName _AgregarBibliotecario_QNAME = new QName("http://publicadores/", "agregarBibliotecario");
@@ -47,6 +48,8 @@ public class ObjectFactory {
     private final static QName _ListarIdsMaterialesResponse_QNAME = new QName("http://publicadores/", "listarIdsMaterialesResponse");
     private final static QName _ListarLectores_QNAME = new QName("http://publicadores/", "listarLectores");
     private final static QName _ListarLectoresResponse_QNAME = new QName("http://publicadores/", "listarLectoresResponse");
+    private final static QName _ListarLectoresSuspendidos_QNAME = new QName("http://publicadores/", "listarLectoresSuspendidos");
+    private final static QName _ListarLectoresSuspendidosResponse_QNAME = new QName("http://publicadores/", "listarLectoresSuspendidosResponse");
     private final static QName _ListarMateriales_QNAME = new QName("http://publicadores/", "listarMateriales");
     private final static QName _ListarMaterialesResponse_QNAME = new QName("http://publicadores/", "listarMaterialesResponse");
     private final static QName _ListarPrestamos_QNAME = new QName("http://publicadores/", "listarPrestamos");
@@ -65,6 +68,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Exception }
+     * 
+     */
+    public Exception createException() {
+        return new Exception();
     }
 
     /**
@@ -252,6 +263,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarLectoresSuspendidos }
+     * 
+     */
+    public ListarLectoresSuspendidos createListarLectoresSuspendidos() {
+        return new ListarLectoresSuspendidos();
+    }
+
+    /**
+     * Create an instance of {@link ListarLectoresSuspendidosResponse }
+     * 
+     */
+    public ListarLectoresSuspendidosResponse createListarLectoresSuspendidosResponse() {
+        return new ListarLectoresSuspendidosResponse();
+    }
+
+    /**
      * Create an instance of {@link ListarMateriales }
      * 
      */
@@ -348,6 +375,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtLector }
+     * 
+     */
+    public DtLector createDtLector() {
+        return new DtLector();
+    }
+
+    /**
      * Create an instance of {@link DtBibliotecario }
      * 
      */
@@ -356,11 +391,16 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtLector }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
      */
-    public DtLector createDtLector() {
-        return new DtLector();
+    @XmlElementDecl(namespace = "http://publicadores/", name = "Exception")
+    public JAXBElement<Exception> createException(Exception value) {
+        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 
     /**
@@ -660,6 +700,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://publicadores/", name = "listarLectoresResponse")
     public JAXBElement<ListarLectoresResponse> createListarLectoresResponse(ListarLectoresResponse value) {
         return new JAXBElement<ListarLectoresResponse>(_ListarLectoresResponse_QNAME, ListarLectoresResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarLectoresSuspendidos }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarLectoresSuspendidos }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarLectoresSuspendidos")
+    public JAXBElement<ListarLectoresSuspendidos> createListarLectoresSuspendidos(ListarLectoresSuspendidos value) {
+        return new JAXBElement<ListarLectoresSuspendidos>(_ListarLectoresSuspendidos_QNAME, ListarLectoresSuspendidos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarLectoresSuspendidosResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarLectoresSuspendidosResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarLectoresSuspendidosResponse")
+    public JAXBElement<ListarLectoresSuspendidosResponse> createListarLectoresSuspendidosResponse(ListarLectoresSuspendidosResponse value) {
+        return new JAXBElement<ListarLectoresSuspendidosResponse>(_ListarLectoresSuspendidosResponse_QNAME, ListarLectoresSuspendidosResponse.class, null, value);
     }
 
     /**
