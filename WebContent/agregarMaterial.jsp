@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Material - Biblioteca</title>
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/stylesAgregarMaterial.css">
 </head>
 <body>
     <div class="form-container">
-        <h1>Agregar Nuevo Material</h1>
+        <h1 class="uppercase">Agregar Nuevo Material</h1>
         
         <div class="navigation">
             <a href="consultarMateriales">Ver Materiales</a>

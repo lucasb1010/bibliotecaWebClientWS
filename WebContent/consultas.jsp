@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Materiales</title>
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/stylesConsultas.css">
   </head>
   <body>
@@ -17,7 +18,7 @@
       <a href="agregarMaterial" class="add-button">➕ Agregar Nuevo Material</a>
       
       <% if (request.getAttribute("mensaje") != null) { %>
-        <div style="background-color: #e7f3ff; color: #0066cc; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0066cc;">
+        <div class="div">
           <%= request.getAttribute("mensaje") %>
         </div>
       <% } %>

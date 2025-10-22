@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error - Biblioteca</title>
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/stylesError.css">
 </head>
 <body>
@@ -27,4 +28,3 @@
     </div>
 </body>
 </html>
-

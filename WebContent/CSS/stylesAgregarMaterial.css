@@ -1,24 +1,20 @@
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    scroll-snap-type: y mandatory;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-
 .form-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 30px;
-    background: white;
+    background-color: var(--crema);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 4px 6px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
     margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
 }
 
 .form-row {
@@ -34,7 +30,8 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: var(--grisOscuro);
+    font-size: var(--tamaño-letra-título-chico);
 }
 
 input[type="text"],
@@ -57,7 +54,7 @@ input[type="date"]:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: var(--verdeOscuro);
 }
 
 textarea {
@@ -66,7 +63,7 @@ textarea {
 }
 
 .required {
-    color: #e74c3c;
+    color: var(--rojoOscuro);
 }
 
 .btn {
@@ -76,43 +73,44 @@ textarea {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    text-decoration: none;
 }
 
 .btn-primary {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
 }
 
 .btn-primary:hover {
-    background-color: #45a049;
+    background-color: var(--verdeOscuro--hover);
 }
 
 .btn-secondary {
-    background-color: #6c757d;
-    color: white;
+    background-color: var(--grisOscuro);
+    color: var(--crema);
     margin-left: 10px;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
+    background-color: var(--grisClaro);
 }
 
 .error {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: var(--rojoClaro);
+    color: var(--rojoOscuro);
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    border: 1px solid #f5c6cb;
+    border: 1px solid var(--rojoOscuro);
 }
 
 .success {
     background-color: #d4edda;
-    color: #155724;
+    color: var(--verdeOscuro);
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    border: 1px solid #c3e6cb;
+    border: 1px solid var(--verdeOscuro);
 }
 
 .navigation {
@@ -121,12 +119,15 @@ textarea {
 }
 
 .navigation a {
-    color: #4CAF50;
+    color: var(--verdeOscuro);
     text-decoration: none;
-    margin: 0 15px;
+    padding: 5px 10px;
     font-weight: bold;
+    font-size: 20px;
+    border-radius: 7px;
 }
 
 .navigation a:hover {
-    text-decoration: underline;
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
 }
