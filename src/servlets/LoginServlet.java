@@ -39,34 +39,36 @@ public class LoginServlet extends HttpServlet {
             ControladorPublishService service = new ControladorPublishService();
             ControladorPublish port = service.getControladorPublishPort();
             
-            // Llamar al método de login (necesitarás implementarlo en el servicio web)
-            DtUsuario usuario = port.login(email, password);
-            
-            if (usuario != null) {
-                // Login exitoso
-                HttpSession session = req.getSession(true);
-                session.setAttribute("usuario", usuario);
-                session.setAttribute("email", email);
-                session.setAttribute("tipoUsuario", usuario.getClass().getSimpleName());
+            // Verificar si el usuario existe usando el servicio web
+            try {
+                DtUsuario usuario = port.login(email, password);
                 
-                // Obtener nombre del usuario (usando reflexión para acceder a getNombre)
-                String nombreUsuario = "Usuario";
-                try {
-                    java.lang.reflect.Method getNombre = usuario.getClass().getMethod("getNombre");
-                    nombreUsuario = (String) getNombre.invoke(usuario);
-                } catch (Exception e) {
-                    System.out.println("No se pudo obtener el nombre del usuario: " + e.getMessage());
+                if (usuario != null) {
+                    // Login exitoso - usuario existe en la base de datos
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute("usuario", usuario);
+                    session.setAttribute("email", email);
+                    session.setAttribute("tipoUsuario", usuario.getClass().getSimpleName());
+                    
+                    // Usar el correo como nombre (parte antes del @)
+                    String nombreUsuario = email.split("@")[0];
+                    session.setAttribute("nombreUsuario", nombreUsuario);
+                    
+                    System.out.println("DEBUG - Login exitoso - Email: " + email + ", Nombre: " + nombreUsuario + ", Tipo: " + usuario.getClass().getSimpleName());
+                    
+                    response.addProperty("success", true);
+                    response.addProperty("message", "¡Bienvenido " + nombreUsuario + "!");
+                    response.addProperty("tipoUsuario", usuario.getClass().getSimpleName());
+                    response.addProperty("nombreUsuario", nombreUsuario);
+                } else {
+                    response.addProperty("success", false);
+                    response.addProperty("message", "Usuario no encontrado o credenciales incorrectas");
                 }
-                
-                session.setAttribute("nombreUsuario", nombreUsuario);
-                
-                response.addProperty("success", true);
-                response.addProperty("message", "¡Bienvenido " + nombreUsuario + "!");
-                response.addProperty("tipoUsuario", usuario.getClass().getSimpleName());
-                response.addProperty("nombreUsuario", nombreUsuario);
-            } else {
+            } catch (Exception e) {
+                // Si el servicio web no está disponible, mostrar error
+                System.out.println("ERROR - Servicio web no disponible: " + e.getMessage());
                 response.addProperty("success", false);
-                response.addProperty("message", "Credenciales incorrectas");
+                response.addProperty("message", "Servicio no disponible. Contacta al administrador.");
             }
             
         } catch (Exception e) {

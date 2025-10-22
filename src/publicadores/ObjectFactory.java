@@ -59,6 +59,8 @@ public class ObjectFactory {
     private final static QName _ListarPrestamosString_QNAME = new QName("http://publicadores/", "listarPrestamosString");
     private final static QName _ListarPrestamosStringResponse_QNAME = new QName("http://publicadores/", "listarPrestamosStringResponse");
     private final static QName _Login_QNAME = new QName("http://publicadores/", "login");
+    private final static QName _LoginConNombre_QNAME = new QName("http://publicadores/", "loginConNombre");
+    private final static QName _LoginConNombreResponse_QNAME = new QName("http://publicadores/", "loginConNombreResponse");
     private final static QName _LoginResponse_QNAME = new QName("http://publicadores/", "loginResponse");
     private final static QName _ObtenerMaterialesConPrestamosPendientes_QNAME = new QName("http://publicadores/", "obtenerMaterialesConPrestamosPendientes");
     private final static QName _ObtenerMaterialesConPrestamosPendientesResponse_QNAME = new QName("http://publicadores/", "obtenerMaterialesConPrestamosPendientesResponse");
@@ -354,6 +356,22 @@ public class ObjectFactory {
      */
     public Login createLogin() {
         return new Login();
+    }
+
+    /**
+     * Create an instance of {@link LoginConNombre }
+     * 
+     */
+    public LoginConNombre createLoginConNombre() {
+        return new LoginConNombre();
+    }
+
+    /**
+     * Create an instance of {@link LoginConNombreResponse }
+     * 
+     */
+    public LoginConNombreResponse createLoginConNombreResponse() {
+        return new LoginConNombreResponse();
     }
 
     /**
@@ -897,6 +915,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://publicadores/", name = "login")
     public JAXBElement<Login> createLogin(Login value) {
         return new JAXBElement<Login>(_Login_QNAME, Login.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginConNombre }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link LoginConNombre }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "loginConNombre")
+    public JAXBElement<LoginConNombre> createLoginConNombre(LoginConNombre value) {
+        return new JAXBElement<LoginConNombre>(_LoginConNombre_QNAME, LoginConNombre.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginConNombreResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link LoginConNombreResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "loginConNombreResponse")
+    public JAXBElement<LoginConNombreResponse> createLoginConNombreResponse(LoginConNombreResponse value) {
+        return new JAXBElement<LoginConNombreResponse>(_LoginConNombreResponse_QNAME, LoginConNombreResponse.class, null, value);
     }
 
     /**
