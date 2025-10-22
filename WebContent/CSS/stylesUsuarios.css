@@ -1,0 +1,243 @@
+/* Estilos específicos para la página de usuarios */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--verdeOscuro) 30%, var(--crema) 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #f1ece15d;
+    transition: all 0.3s ease;
+    font-size: var(--tamaño-letra-título-chico);
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+p {
+    font-size: var(--tamaño-letra-título-chico);
+    color: var(--grisOscuro);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+h2 {
+    font-size: var(--tamaño-letra-título-medio);
+    color: var(--grisOscuro);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    color: #667eea;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+}
+
+.users-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.users-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.users-section h2 {
+    margin: 0 0 20px 0;
+    color: #333;
+    border-bottom: 2px solid var(--grisOscuro);
+    padding-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.clear-btn {
+    padding: 12px 20px;
+    background: var(--verdeOscuro);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.clear-btn:hover {
+    background: var(--crema);
+    color: var(--verdeOscuro--hover);
+}
+
+.users-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--verdeOscuro);
+    transition: all 0.3s ease;
+}
+
+.user-card:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.user-info h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.user-type {
+    background: var(--verdeOscuro--hover);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.user-type.bibliotecario {
+    background: var(--verdeOscuro);
+}
+
+.user-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-info {
+    background: var(--verdeOscuro);
+    color: var(--blanco);
+}
+
+.btn-info:hover {
+    background: var(--verdeOscuro--hover);
+}
+
+
+.btn-warning {
+    background: var(--crema);
+    color: var(--grisOscuro);
+}
+
+.btn-warning:hover {
+    background: var(--grisClaro);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .users-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .user-card {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .user-actions {
+        justify-content: center;
+    }
+}

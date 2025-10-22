@@ -2,7 +2,35 @@ html {
     font-size: 62.5%;
     box-sizing: border-box;
     scroll-snap-type: y mandatory;
+    background-color: rgba(34, 73, 56, 0.2);
 }
 *, *:before, *:after {
     box-sizing: inherit;
+}
+:root {
+    --grisOscuro: #1a1919;
+    --grisClaro: #c9c9c9;
+    --verdeOscuro: #224938;
+    --verdeOscuro--hover: #1e3f31d0;
+    --crema: #f1ece1;
+    --blanco: #e8f2ff;
+    --rojoOscuro: #721c24;
+    --rojoClaro: #f8d7da;
+
+    --tamaño-letra-título-grande: 40px;
+    --tamaño-letra-título-medio: 30px;
+    --tamaño-letra-título-chico: 14px;
+    --tamaño-letra-span: ;
+    --tamaño-letra-nav: 26px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+a, button {
+    text-decoration: none;
+    cursor: pointer;
 }

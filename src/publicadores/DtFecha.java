@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="day" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="month" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="year" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="dia" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="mes" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="anio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,62 +29,62 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "dtFecha", propOrder = {
-    "day",
-    "month",
-    "year"
+    "dia",
+    "mes",
+    "anio"
 })
 public class DtFecha {
 
-    protected int day;
-    protected int month;
-    protected int year;
+    protected int dia;
+    protected int mes;
+    protected int anio;
 
     /**
-     * Obtiene el valor de la propiedad day.
+     * Obtiene el valor de la propiedad dia.
      * 
      */
-    public int getDay() {
-        return day;
+    public int getDia() {
+        return dia;
     }
 
     /**
-     * Define el valor de la propiedad day.
+     * Define el valor de la propiedad dia.
      * 
      */
-    public void setDay(int value) {
-        this.day = value;
+    public void setDia(int value) {
+        this.dia = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad month.
+     * Obtiene el valor de la propiedad mes.
      * 
      */
-    public int getMonth() {
-        return month;
+    public int getMes() {
+        return mes;
     }
 
     /**
-     * Define el valor de la propiedad month.
+     * Define el valor de la propiedad mes.
      * 
      */
-    public void setMonth(int value) {
-        this.month = value;
+    public void setMes(int value) {
+        this.mes = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad year.
+     * Obtiene el valor de la propiedad anio.
      * 
      */
-    public int getYear() {
-        return year;
+    public int getAnio() {
+        return anio;
     }
 
     /**
-     * Define el valor de la propiedad year.
+     * Define el valor de la propiedad anio.
      * 
      */
-    public void setYear(int value) {
-        this.year = value;
+    public void setAnio(int value) {
+        this.anio = value;
     }
 
 }
