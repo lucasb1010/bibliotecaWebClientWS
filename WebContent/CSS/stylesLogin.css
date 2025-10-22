@@ -9,7 +9,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(34, 73, 56, 0.2);
 }
 
 .nav {
