@@ -17,8 +17,17 @@
             <nav class="nav">
                 <a href="consultarMateriales" class="nav-link">📚 Ver Materiales</a>
                 <a href="agregarMaterial" class="nav-link">➕ Agregar Material</a>
+                <a href="listarPrestamos" class="nav-link">📋 Ver Préstamos</a>
+                <a href="logout" class="nav-link" style="color: #f44336;">🚪 Cerrar Sesión</a>
             </nav>
         </header>
+        
+        <!-- Información de acceso -->
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+            <p style="margin: 0; color: #2e7d32; font-weight: bold;">
+                👨‍💼 <strong>Acceso de Bibliotecario</strong> - Gestión de usuarios
+            </p>
+        </div>
 
         <main class="main-content">
             <div class="stats-container">

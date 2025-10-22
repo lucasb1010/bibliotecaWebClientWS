@@ -77,4 +77,35 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>MisPrestamosServlet</servlet-name>
+    <servlet-class>servlets.MisPrestamosServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MisPrestamosServlet</servlet-name>
+    <url-pattern>/misPrestamos</url-pattern>
+  </servlet-mapping>
+
+  <!-- Filtro administrativo para todas las páginas protegidas -->
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>filters.AdminFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/consultar-usuarios</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/agregarMaterial</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/listarPrestamos</url-pattern>
+  </filter-mapping>
+
 </web-app>

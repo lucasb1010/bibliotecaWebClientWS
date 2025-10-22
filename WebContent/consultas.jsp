@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+  // Declarar variables al inicio para evitar conflictos con includes
+  String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+%>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -125,8 +129,15 @@
     <div class="materials-container">
       <div class="navigation">
         <a href="consultarMateriales">Ver Materiales</a>
-        <a href="consultar-usuarios">Ver Usuarios</a>
-        <a href="agregarMaterial">Agregar Material</a>
+        <% 
+          if (tipoUsuario != null && tipoUsuario.equals("DtBibliotecario")) {
+        %>
+            <a href="consultar-usuarios">Ver Usuarios</a>
+            <a href="agregarMaterial">Agregar Material</a>
+            <a href="listarPrestamos">Ver Préstamos</a>
+        <% } else { %>
+            <a href="misPrestamos">Mis Préstamos</a>
+        <% } %>
         <a href="logout" style="color: #dc3545;">Cerrar Sesión</a>
       </div>
       

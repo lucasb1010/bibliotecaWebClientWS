@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-  // Declarar variable una sola vez al inicio
+  // Declarar variables una sola vez al inicio
   String nombreUsuario = (String) session.getAttribute("nombreUsuario");
+  String tipoUsuario = (String) session.getAttribute("tipoUsuario");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +55,6 @@
     <main class="main">
         <% 
           if (nombreUsuario != null) {
-            String tipoUsuario = (String) session.getAttribute("tipoUsuario");
         %>
             <h2 class="main__h2"> <span>📗 ¡Bienvenido de vuelta, </span> <span class="sup"><%= nombreUsuario %>!</span></h2>
             <p class="main__p">Explora nuestra colección de libros y recursos digitales.</p>
@@ -62,8 +62,11 @@
             <div style="text-align: center; margin-top: 30px;">
                 <a href="consultarMateriales" style="background: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📚 Ver Materiales</a>
                 <% if (tipoUsuario != null && tipoUsuario.equals("DtBibliotecario")) { %>
+                    <a href="consultar-usuarios" style="background: #9C27B0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">👥 Gestionar Usuarios</a>
                     <a href="listarPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Ver Préstamos</a>
                     <a href="agregarMaterial" style="background: #FF9800; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">➕ Agregar Material</a>
+                <% } else { %>
+                    <a href="misPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Mis Préstamos</a>
                 <% } %>
                 <a href="logout" style="background: #f44336; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">🚪 Cerrar Sesión</a>
             </div>
