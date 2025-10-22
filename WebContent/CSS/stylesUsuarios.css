@@ -10,7 +10,7 @@
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--verdeOscuro) 30%, var(--crema) 100%);
     color: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -33,13 +33,18 @@
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 25px;
-    background: rgba(255,255,255,0.2);
+    background: #f1ece15d;
     transition: all 0.3s ease;
+    font-size: var(--tamaño-letra-título-chico);
 }
 
 .nav-link:hover {
-    background: rgba(255,255,255,0.3);
     transform: translateY(-2px);
+}
+
+p {
+    font-size: var(--tamaño-letra-título-chico);
+    color: var(--grisOscuro);
 }
 
 .stats-container {
@@ -50,12 +55,17 @@
 }
 
 .stat-card {
-    background: white;
+    background-color: white;
     padding: 25px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+}
+
+h2 {
+    font-size: var(--tamaño-letra-título-medio);
+    color: var(--grisOscuro);
 }
 
 .stat-card:hover {
@@ -90,7 +100,7 @@
 .users-section h2 {
     margin: 0 0 20px 0;
     color: #333;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid var(--grisOscuro);
     padding-bottom: 10px;
 }
 
@@ -116,7 +126,7 @@
 
 .clear-btn {
     padding: 12px 20px;
-    background: #ff6b6b;
+    background: var(--verdeOscuro);
     color: white;
     border: none;
     border-radius: 8px;
@@ -125,7 +135,8 @@
 }
 
 .clear-btn:hover {
-    background: #ff5252;
+    background: var(--crema);
+    color: var(--verdeOscuro--hover);
 }
 
 .users-list {
@@ -141,7 +152,7 @@
     margin-bottom: 10px;
     background: #f8f9fa;
     border-radius: 8px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--verdeOscuro);
     transition: all 0.3s ease;
 }
 
@@ -156,7 +167,7 @@
 }
 
 .user-type {
-    background: #667eea;
+    background: var(--verdeOscuro--hover);
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
@@ -165,7 +176,7 @@
 }
 
 .user-type.bibliotecario {
-    background: #28a745;
+    background: var(--verdeOscuro);
 }
 
 .user-actions {
@@ -184,21 +195,22 @@
 }
 
 .btn-info {
-    background: #17a2b8;
-    color: white;
+    background: var(--verdeOscuro);
+    color: var(--blanco);
 }
 
 .btn-info:hover {
-    background: #138496;
+    background: var(--verdeOscuro--hover);
 }
 
+
 .btn-warning {
-    background: #ffc107;
-    color: #212529;
+    background: var(--crema);
+    color: var(--grisOscuro);
 }
 
 .btn-warning:hover {
-    background: #e0a800;
+    background: var(--grisClaro);
 }
 
 .no-data {

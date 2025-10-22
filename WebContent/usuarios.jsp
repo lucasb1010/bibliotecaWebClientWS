@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios de la Biblioteca</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/usuarios.css">
+    <link rel="stylesheet" href="CSS/stylesUsuarios.css">
 </head>
 <body>
     <div class="container">
@@ -123,6 +123,7 @@
         </main>
     </div>
 
+    <script src="JS/scriptsUsuarios.js"></script>
     <!-- Modal para cambiar zona -->
     <div id="modalCambiarZona" class="modal">
         <div class="modal-content">

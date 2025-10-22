@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materiales</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/stylesConsultas.css">
     <style>
       .navigation {
         text-align: center;
@@ -126,13 +127,16 @@
         <a href="consultarMateriales">Ver Materiales</a>
         <a href="consultar-usuarios">Ver Usuarios</a>
         <a href="agregarMaterial">Agregar Material</a>
+        <a href="logout" style="color: #dc3545;">Cerrar Sesión</a>
       </div>
+      
+      <%@ include file="includes/userGreeting.jsp" %>
       
       <h2>Materiales de la Biblioteca</h2>
       <a href="agregarMaterial" class="add-button">➕ Agregar Nuevo Material</a>
       
       <% if (request.getAttribute("mensaje") != null) { %>
-        <div style="background-color: #e7f3ff; color: #0066cc; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0066cc;">
+        <div class="div">
           <%= request.getAttribute("mensaje") %>
         </div>
       <% } %>

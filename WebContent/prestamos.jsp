@@ -75,12 +75,16 @@
 </head>
 <body>
   <div class="container">
-    <div class="navigation">
-      <a href="consultarMateriales">Ver Materiales</a>
-      <a href="agregarMaterial">Agregar Material</a>
-      <a href="agregarPrestamo">Agregar Préstamo</a>
-      <a href="listarPrestamos">Ver Préstamos</a>
-    </div>
+        <div class="navigation">
+          <a href="consultarMateriales">Ver Materiales</a>
+          <a href="agregarMaterial">Agregar Material</a>
+          <a href="agregarPrestamo">Agregar Préstamo</a>
+          <a href="listarPrestamos">Ver Préstamos</a>
+          <a href="logout" style="color: #dc3545;">Cerrar Sesión</a>
+        </div>
+        
+        <%@ include file="includes/userGreeting.jsp" %>
+        
     <h1>Préstamos</h1>
 
     <% if (request.getAttribute("error") != null) { %>
