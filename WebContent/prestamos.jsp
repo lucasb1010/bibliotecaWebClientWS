@@ -13,11 +13,63 @@
     ul { list-style: none; padding-left: 0; }
     li { background: #f8f9fa; margin-bottom: 10px; padding: 12px 14px; border-radius: 6px; }
     .empty { color: #666; font-style: italic; text-align: center; }
+    
+    /* Estilos para préstamos con botones */
+    .prestamo-item { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: #f8f9fa; 
+      margin-bottom: 10px; 
+      padding: 15px; 
+      border-radius: 8px; 
+      border-left: 4px solid #4CAF50;
+    }
+    .prestamo-info { flex: 1; }
+    .prestamo-actions { display: flex; gap: 8px; }
+    .btn { 
+      padding: 8px 16px; 
+      border: none; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 12px; 
+      font-weight: 500; 
+      transition: all 0.3s ease;
+    }
+    .btn-success { 
+      background: #28a745; 
+      color: white; 
+    }
+    .btn-success:hover { 
+      background: #218838; 
+    }
+    .btn-warning { 
+      background: #ffc107; 
+      color: #212529; 
+    }
+    .btn-warning:hover { 
+      background: #e0a800; 
+    }
+    .btn-info { 
+      background: #17a2b8; 
+      color: white; 
+    }
+    .btn-info:hover { 
+      background: #138496; 
+    }
 
     @media (max-width: 768px) {
       .container { margin: 10px; padding: 16px; }
       .navigation { display: flex; flex-direction: column; gap: 8px; }
-      li { font-size: 14px; }
+      .prestamo-item { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center; 
+      }
+      .prestamo-actions { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+      }
     }
   </style>
 </head>
@@ -40,8 +92,47 @@
         java.util.List<String> prestamos = (java.util.List<String>) request.getAttribute("prestamos");
         if (prestamos != null && !prestamos.isEmpty()) {
           for (String p : prestamos) {
+            // Extraer información del préstamo para los botones
+            // Formato: "Préstamo - Lector: correo, Bibliotecario: correo, Material: id, Estado: ESTADO"
+            String lectorCorreo = p.substring(p.indexOf("Lector: ") + 8, p.indexOf(", Bibliotecario:"));
+            String bibliotecarioCorreo = p.substring(p.indexOf("Bibliotecario: ") + 15, p.indexOf(", Material:"));
+            String materialId = p.substring(p.indexOf("Material: ") + 10, p.indexOf(", Estado:"));
+            String estadoActual = p.substring(p.indexOf("Estado: ") + 8);
       %>
-            <li><%= p %></li>
+            <li class="prestamo-item">
+              <div class="prestamo-info">
+                <strong><%= p %></strong>
+              </div>
+              <div class="prestamo-actions">
+                <% if (!estadoActual.equals("PENDIENTE")) { %>
+                  <form method="post" action="listarPrestamos" style="display: inline;">
+                    <input type="hidden" name="lectorCorreo" value="<%= lectorCorreo %>">
+                    <input type="hidden" name="bibliotecarioCorreo" value="<%= bibliotecarioCorreo %>">
+                    <input type="hidden" name="materialId" value="<%= materialId %>">
+                    <input type="hidden" name="nuevoEstado" value="PENDIENTE">
+                    <button type="submit" class="btn btn-info">Marcar como Pendiente</button>
+                  </form>
+                <% } %>
+                <% if (!estadoActual.equals("EN_CURSO")) { %>
+                  <form method="post" action="listarPrestamos" style="display: inline;">
+                    <input type="hidden" name="lectorCorreo" value="<%= lectorCorreo %>">
+                    <input type="hidden" name="bibliotecarioCorreo" value="<%= bibliotecarioCorreo %>">
+                    <input type="hidden" name="materialId" value="<%= materialId %>">
+                    <input type="hidden" name="nuevoEstado" value="EN_CURSO">
+                    <button type="submit" class="btn btn-success">Marcar como En Curso</button>
+                  </form>
+                <% } %>
+                <% if (!estadoActual.equals("DEVUELTO")) { %>
+                  <form method="post" action="listarPrestamos" style="display: inline;">
+                    <input type="hidden" name="lectorCorreo" value="<%= lectorCorreo %>">
+                    <input type="hidden" name="bibliotecarioCorreo" value="<%= bibliotecarioCorreo %>">
+                    <input type="hidden" name="materialId" value="<%= materialId %>">
+                    <input type="hidden" name="nuevoEstado" value="DEVUELTO">
+                    <button type="submit" class="btn btn-warning">Marcar como Devuelto</button>
+                  </form>
+                <% } %>
+              </div>
+            </li>
       <%
           }
         } else {
