@@ -230,7 +230,6 @@ function toggleUsuario(usuario) {
         showToast(`Usuario ${estaActivo ? 'suspendido' : 'activado'}`, 'success');
     }).catch(err => showToast('Error: ' + err.message, 'error'));
 }
-
 function addAnimations() {
     // Agregar animaciones CSS
     const style = document.createElement('style');
