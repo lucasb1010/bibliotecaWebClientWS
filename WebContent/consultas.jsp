@@ -48,6 +48,113 @@
         padding: 20px;
       }
       
+      /* Estilos para el filtro de fechas */
+      .filter-container {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .filter-container h3 {
+        margin: 0 0 15px 0;
+        color: #495057;
+        font-size: 1.2rem;
+      }
+      
+      .filter-info {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+      
+      .filter-info p {
+        margin: 0;
+        color: #856404;
+      }
+      
+      .date-filter-form {
+        margin: 0;
+      }
+      
+      .filter-row {
+        display: flex;
+        gap: 15px;
+        align-items: end;
+        flex-wrap: wrap;
+      }
+      
+      .filter-group {
+        flex: 1;
+        min-width: 150px;
+      }
+      
+      .filter-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #495057;
+        font-size: 0.9rem;
+      }
+      
+      .filter-group input[type="date"] {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+      }
+      
+      .filter-group input[type="date"]:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+      }
+      
+      .filter-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      
+      .btn-filter {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      
+      .btn-filter:hover {
+        background: #45a049;
+      }
+      
+      .btn-clear {
+        background: #6c757d;
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        display: inline-block;
+      }
+      
+      .btn-clear:hover {
+        background: #5a6268;
+        color: white;
+        text-decoration: none;
+      }
+      
       /* Responsive Design */
       @media screen and (max-width: 768px) {
         .materials-container {
@@ -122,6 +229,26 @@
           font-size: 14px;
           padding: 8px;
         }
+        
+        /* Responsive para el filtro */
+        .filter-row {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        .filter-group {
+          min-width: auto;
+        }
+        
+        .filter-actions {
+          justify-content: center;
+          margin-top: 10px;
+        }
+        
+        .btn-filter, .btn-clear {
+          flex: 1;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -144,6 +271,33 @@
       <%@ include file="includes/userGreeting.jsp" %>
       
       <h2>Materiales de la Biblioteca</h2>
+      
+      <!-- Filtro de fechas -->
+      <div class="filter-container">
+        <h3>🔍 Filtrar por Fecha de Ingreso</h3>
+        <div class="filter-info">
+          <p><strong>Nota:</strong> El filtro de fechas requiere que el backend tenga configurada correctamente la entidad Material con la propiedad fechaIngreso.</p>
+        </div>
+        <form method="get" action="consultarMateriales" class="date-filter-form">
+          <div class="filter-row">
+            <div class="filter-group">
+              <label for="fechaDesde">Fecha Desde:</label>
+              <input type="date" id="fechaDesde" name="fechaDesde" 
+                     value="<%= request.getParameter("fechaDesde") != null ? request.getParameter("fechaDesde") : "" %>">
+            </div>
+            <div class="filter-group">
+              <label for="fechaHasta">Fecha Hasta:</label>
+              <input type="date" id="fechaHasta" name="fechaHasta" 
+                     value="<%= request.getParameter("fechaHasta") != null ? request.getParameter("fechaHasta") : "" %>">
+            </div>
+            <div class="filter-actions">
+              <button type="submit" class="btn-filter">🔍 Filtrar</button>
+              <a href="consultarMateriales" class="btn-clear">🗑️ Limpiar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      
       <a href="agregarMaterial" class="add-button">➕ Agregar Nuevo Material</a>
       
       <% if (request.getAttribute("mensaje") != null) { %>
@@ -163,5 +317,64 @@
       %>
     </ul>
     </div>
+    
+    <script>
+    // JavaScript para mejorar la experiencia del filtro de fechas
+    document.addEventListener('DOMContentLoaded', function() {
+        const fechaDesdeInput = document.getElementById('fechaDesde');
+        const fechaHastaInput = document.getElementById('fechaHasta');
+        const filterForm = document.querySelector('.date-filter-form');
+        
+        // Validar que la fecha desde no sea mayor que la fecha hasta
+        function validateDateRange() {
+            const fechaDesde = fechaDesdeInput.value;
+            const fechaHasta = fechaHastaInput.value;
+            
+            if (fechaDesde && fechaHasta && fechaDesde > fechaHasta) {
+                alert('La fecha "Desde" no puede ser mayor que la fecha "Hasta"');
+                fechaDesdeInput.focus();
+                return false;
+            }
+            return true;
+        }
+        
+        // Agregar validación al formulario
+        if (filterForm) {
+            filterForm.addEventListener('submit', function(e) {
+                if (!validateDateRange()) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        }
+        
+        // Validar en tiempo real cuando cambien las fechas
+        if (fechaDesdeInput) {
+            fechaDesdeInput.addEventListener('change', validateDateRange);
+        }
+        
+        if (fechaHastaInput) {
+            fechaHastaInput.addEventListener('change', validateDateRange);
+        }
+        
+        // Establecer fecha máxima como hoy para evitar fechas futuras
+        const today = new Date().toISOString().split('T')[0];
+        if (fechaDesdeInput) {
+            fechaDesdeInput.setAttribute('max', today);
+        }
+        if (fechaHastaInput) {
+            fechaHastaInput.setAttribute('max', today);
+        }
+        
+        // Auto-completar fecha hasta si solo se selecciona fecha desde
+        if (fechaDesdeInput && fechaHastaInput) {
+            fechaDesdeInput.addEventListener('change', function() {
+                if (this.value && !fechaHastaInput.value) {
+                    fechaHastaInput.value = this.value;
+                }
+            });
+        }
+    });
+    </script>
   </body>
 </html>
