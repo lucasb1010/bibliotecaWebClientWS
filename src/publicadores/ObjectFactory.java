@@ -465,19 +465,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtBibliotecario }
-     * 
-     */
-    public DtBibliotecario createDtBibliotecario() {
-        return new DtBibliotecario();
-    }
-
-    /**
      * Create an instance of {@link DtLector }
      * 
      */
     public DtLector createDtLector() {
         return new DtLector();
+    }
+
+    /**
+     * Create an instance of {@link DtBibliotecario }
+     * 
+     */
+    public DtBibliotecario createDtBibliotecario() {
+        return new DtBibliotecario();
     }
 
     /**
