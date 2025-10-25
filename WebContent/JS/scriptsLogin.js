@@ -5,10 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
     const popupMessage = document.getElementById('popup-message');
 
-    // Mostrar popup
+    // Verificar si el usuario ya está logueado
+    const nombreUsuario = document.querySelector('meta[name="nombreUsuario"]')?.getAttribute('content');
+    const tipoUsuario = document.querySelector('meta[name="tipoUsuario"]')?.getAttribute('content');
+    
+    // Si el usuario está logueado, redirigir en lugar de mostrar popup
     abrir.addEventListener('click', () => {
-        overlay.style.display = 'flex';
-        popupMessage.textContent = '';
+        if (nombreUsuario && nombreUsuario !== 'null' && nombreUsuario !== '') {
+            // Usuario logueado - redirigir según tipo
+            if (tipoUsuario === 'DtLector') {
+                window.location.href = 'consultarMateriales';
+            } else if (tipoUsuario === 'DtBibliotecario') {
+                window.location.href = 'listarPrestamos';
+            } else {
+                window.location.href = 'consultarMateriales';
+            }
+        } else {
+            // Usuario no logueado - mostrar popup
+            overlay.style.display = 'flex';
+            popupMessage.textContent = '';
+        }
     });
 
     // Cerrar popup
@@ -27,17 +43,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
-        fetch('backend/login.php', {
+        // Enviar datos como URL-encoded
+        const params = new URLSearchParams();
+        params.append('email', email);
+        params.append('password', password);
+
+        fetch('login', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email, password})
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: params
         })
         .then(res => res.json())
         .then(data => {
             if (data.success) {
                 popupMessage.style.color = 'green';
-                popupMessage.textContent = '¡Bienvenido!';
-                setTimeout(() => overlay.style.display = 'none', 1000);
+                popupMessage.textContent = data.message || '¡Bienvenido!';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    // Recargar la página para mostrar el estado logueado
+                    window.location.reload();
+                }, 1000);
             } else {
                 popupMessage.style.color = 'red';
                 popupMessage.textContent = data.message || 'Credenciales incorrectas';

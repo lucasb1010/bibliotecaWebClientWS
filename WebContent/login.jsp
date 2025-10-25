@@ -1,9 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+  // Declarar variables una sola vez al inicio
+  String nombreUsuario = (String) session.getAttribute("nombreUsuario");
+  String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="nombreUsuario" content="<%= nombreUsuario != null ? nombreUsuario : "" %>">
+    <meta name="tipoUsuario" content="<%= session.getAttribute("tipoUsuario") != null ? session.getAttribute("tipoUsuario") : "" %>">
     <link rel="icon" type="image/ico" href="IMG/"/> <!-- Para agreagar icono -->
     <title>Biblioteca Web</title>
     <link rel="stylesheet" href="CSS/styles.css">
@@ -30,16 +37,53 @@
                 <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
             </svg>
 
-            <p class="nav__acces__container__p">
-                Acceder
+            <p class="nav__acces__container__p" style="<% 
+                  if (nombreUsuario != null) {
+                %>color: #4CAF50; font-weight: bold;<% } %>">
+                <% 
+                  if (nombreUsuario != null) {
+                %>
+                    👋 ¡Hola <%= nombreUsuario %>!
+                <% } else { %>
+                    Acceder
+                <% } %>
             </p>
             <!-- tags: [account, avatar, profile, role] version: "1.44" unicode: "ef68" category: System -->
         </div>
     </nav>
 
     <main class="main">
-        <h2 class="main__h2"> <span>📗 Bienvenido </span> <span class="sup"> a </span> <span class="sub"> la </span> <span class="uppercase"> Biblioteca <span class="sup">W</span><span>e</span><span class="sub">b</span></span></h2>
-        <p class="main__p">Para explorar nuestra colección de libros y recursos digitales inicia sesión.</p>
+        <% 
+          if (nombreUsuario != null) {
+        %>
+            <h2 class="main__h2"> <span>📗 ¡Bienvenido de vuelta, </span> <span class="sup"><%= nombreUsuario %>!</span></h2>
+            <p class="main__p">Explora nuestra colección de libros y recursos digitales.</p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="consultarMateriales" style="background: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📚 Ver Materiales</a>
+                <% if (tipoUsuario != null && tipoUsuario.equals("DtBibliotecario")) { %>
+                    <a href="consultar-usuarios" style="background: #9C27B0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">👥 Gestionar Usuarios</a>
+                    <a href="listarPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Ver Préstamos</a>
+                    <a href="agregarMaterial" style="background: #FF9800; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">➕ Agregar Material</a>
+                <% } else { %>
+                    <a href="misPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Mis Préstamos</a>
+                <% } %>
+                <a href="logout" style="background: #f44336; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">🚪 Cerrar Sesión</a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                <p style="margin: 0; color: #666;">
+                    <% if (tipoUsuario != null && tipoUsuario.equals("DtBibliotecario")) { %>
+                        👨‍💼 <strong>Bibliotecario</strong> - Acceso completo al sistema
+                    <% } else { %>
+                        📖 <strong>Lector</strong> - Acceso a materiales y préstamos
+                    <% } %>
+                </p>
+            </div>
+        <% } else { %>
+            <h2 class="main__h2"> <span>📗 Bienvenido </span> <span class="sup"> a </span> <span class="sub"> la </span> <span class="uppercase"> Biblioteca <span class="sup">W</span><span>e</span><span class="sub">b</span></span></h2>
+            <p class="main__p">Para explorar nuestra colección de libros y recursos digitales inicia sesión.</p>
+        <% } %>
     </main>
 
     <!-- Popup -->

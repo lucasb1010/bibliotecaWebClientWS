@@ -1,5 +1,0 @@
-package publicadores;
-
-public enum RedBiblioteca {
-    BIBLIOTECA_CENTRAL, SUCURSAL_ESTE, SUCURSAL_OESTE, BIBLIOTECA_INFANTIL, ARCHIVO_GENERAL 
-}
