@@ -87,6 +87,16 @@
     <url-pattern>/misPrestamos</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>HistorialPrestamosBibliotecario</servlet-name>
+    <servlet-class>servlets.HistorialPrestamosBibliotecario</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HistorialPrestamosBibliotecario</servlet-name>
+    <url-pattern>/historialPrestamosBibliotecario</url-pattern>
+  </servlet-mapping>
+
   <!-- Filtro administrativo para todas las páginas protegidas -->
   <filter>
     <filter-name>AdminFilter</filter-name>
@@ -106,6 +116,11 @@
   <filter-mapping>
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/listarPrestamos</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/historialPrestamosBibliotecario</url-pattern>
   </filter-mapping>
 
 </web-app>
