@@ -1,0 +1,60 @@
+
+package publicadores;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Clase Java para actualizarPrestamo complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="actualizarPrestamo"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="arg0" type="{http://publicadores/}dtPrestamo" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "actualizarPrestamo", propOrder = {
+    "arg0"
+})
+public class ActualizarPrestamo {
+
+    protected DtPrestamo arg0;
+
+    /**
+     * Obtiene el valor de la propiedad arg0.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DtPrestamo }
+     *     
+     */
+    public DtPrestamo getArg0() {
+        return arg0;
+    }
+
+    /**
+     * Define el valor de la propiedad arg0.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DtPrestamo }
+     *     
+     */
+    public void setArg0(DtPrestamo value) {
+        this.arg0 = value;
+    }
+
+}

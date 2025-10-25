@@ -25,6 +25,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Exception_QNAME = new QName("http://publicadores/", "Exception");
+    private final static QName _ActualizarPrestamo_QNAME = new QName("http://publicadores/", "actualizarPrestamo");
+    private final static QName _ActualizarPrestamoResponse_QNAME = new QName("http://publicadores/", "actualizarPrestamoResponse");
     private final static QName _AgregarArticulo_QNAME = new QName("http://publicadores/", "agregarArticulo");
     private final static QName _AgregarArticuloResponse_QNAME = new QName("http://publicadores/", "agregarArticuloResponse");
     private final static QName _AgregarBibliotecario_QNAME = new QName("http://publicadores/", "agregarBibliotecario");
@@ -84,6 +86,22 @@ public class ObjectFactory {
      */
     public Exception createException() {
         return new Exception();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarPrestamo }
+     * 
+     */
+    public ActualizarPrestamo createActualizarPrestamo() {
+        return new ActualizarPrestamo();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarPrestamoResponse }
+     * 
+     */
+    public ActualizarPrestamoResponse createActualizarPrestamoResponse() {
+        return new ActualizarPrestamoResponse();
     }
 
     /**
@@ -447,19 +465,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtLector }
-     * 
-     */
-    public DtLector createDtLector() {
-        return new DtLector();
-    }
-
-    /**
      * Create an instance of {@link DtBibliotecario }
      * 
      */
     public DtBibliotecario createDtBibliotecario() {
         return new DtBibliotecario();
+    }
+
+    /**
+     * Create an instance of {@link DtLector }
+     * 
+     */
+    public DtLector createDtLector() {
+        return new DtLector();
     }
 
     /**
@@ -473,6 +491,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://publicadores/", name = "Exception")
     public JAXBElement<Exception> createException(Exception value) {
         return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarPrestamo }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ActualizarPrestamo }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "actualizarPrestamo")
+    public JAXBElement<ActualizarPrestamo> createActualizarPrestamo(ActualizarPrestamo value) {
+        return new JAXBElement<ActualizarPrestamo>(_ActualizarPrestamo_QNAME, ActualizarPrestamo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarPrestamoResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ActualizarPrestamoResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "actualizarPrestamoResponse")
+    public JAXBElement<ActualizarPrestamoResponse> createActualizarPrestamoResponse(ActualizarPrestamoResponse value) {
+        return new JAXBElement<ActualizarPrestamoResponse>(_ActualizarPrestamoResponse_QNAME, ActualizarPrestamoResponse.class, null, value);
     }
 
     /**

@@ -135,6 +135,7 @@
                     <button type="submit" class="btn btn-warning">Marcar como Devuelto</button>
                   </form>
                 <% } %>
+                <a href="actualizarPrestamo?lectorCorreo=<%= lectorCorreo %>&bibliotecarioCorreo=<%= bibliotecarioCorreo %>&materialId=<%= materialId %>" class="btn btn-info">Actualizar</a>
               </div>
             </li>
       <%

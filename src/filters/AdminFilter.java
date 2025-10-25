@@ -19,7 +19,13 @@ public class AdminFilter implements Filter {
         // Obtener la sesión
         HttpSession session = req.getSession(false);
         
-        // Verificar si el usuario está logueado
+        // Verificar si la sesión existe y el usuario está logueado
+        if (session == null) {
+            // No hay sesión - redirigir a login
+            resp.sendRedirect("login.jsp");
+            return;
+        }
+        
         String nombreUsuario = (String) session.getAttribute("nombreUsuario");
         String tipoUsuario = (String) session.getAttribute("tipoUsuario");
         
