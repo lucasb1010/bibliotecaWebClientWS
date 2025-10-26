@@ -1,0 +1,64 @@
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+.form-group select { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    font-size: 14px;
+}
+
+.btn { 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 4px;
+    font-size: 14px; 
+    font-weight: 500; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    color: var(--crema);
+}
+
+.btn-primary { 
+    background: var(--verdeOscuro);
+}
+
+.btn-primary:hover { 
+    background: var(--verdeOscuro--hover); 
+}
+
+.btn-secondary { 
+    background: var(--grisOscuro);
+}
+
+.btn-secondary:hover { 
+    background: var(--grisClaro); 
+}
+
+.button-group { 
+    text-align: center; 
+    margin-top: 30px; 
+}
+.button-group .btn { 
+    margin: 0 10px; 
+}
+
+.info-box {
+    background: var(--blanco);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--verdeOscuro);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .container { margin: 10px; padding: 16px; }
+    .navigation { display: flex; flex-direction: column; gap: 8px; }
+    .button-group .btn { 
+    display: block; 
+    margin: 10px auto; 
+    width: 200px;
+    }
+}
