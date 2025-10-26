@@ -43,8 +43,25 @@ h1 {
 }
 
 .btn-filter {
-border: none;
+    border: none;
     padding: 8px 16px;
+}
+
+/* Estilos específicos para el filtro de préstamos */
+.prestamos-filter-form {
+    background-color: var(--verdeClaro);
+    border: 2px solid var(--verdeOscuro);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.prestamos-filter-form .filter-group input[type="number"] {
+    width: 120px;
+    padding: 8px;
+    border: 1px solid var(--verdeOscuro);
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 .btn-filter, .add-button {

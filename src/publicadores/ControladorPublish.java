@@ -28,69 +28,6 @@ public interface ControladorPublish {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerMaterialesConPrestamosPendientes", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerMaterialesConPrestamosPendientes")
-    @ResponseWrapper(localName = "obtenerMaterialesConPrestamosPendientesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerMaterialesConPrestamosPendientesResponse")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesResponse")
-    public List<String> obtenerMaterialesConPrestamosPendientes();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarBibliotecarios", targetNamespace = "http://publicadores/", className = "publicadores.ListarBibliotecarios")
-    @ResponseWrapper(localName = "listarBibliotecariosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarBibliotecariosResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarBibliotecariosRequest", output = "http://publicadores/ControladorPublish/listarBibliotecariosResponse")
-    public List<String> listarBibliotecarios();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerPrestamosDeZona", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerPrestamosDeZona")
-    @ResponseWrapper(localName = "obtenerPrestamosDeZonaResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerPrestamosDeZonaResponse")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerPrestamosDeZonaRequest", output = "http://publicadores/ControladorPublish/obtenerPrestamosDeZonaResponse")
-    public List<String> obtenerPrestamosDeZona(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "agregarBibliotecario", targetNamespace = "http://publicadores/", className = "publicadores.AgregarBibliotecario")
-    @ResponseWrapper(localName = "agregarBibliotecarioResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarBibliotecarioResponse")
-    @Action(input = "http://publicadores/ControladorPublish/agregarBibliotecarioRequest", output = "http://publicadores/ControladorPublish/agregarBibliotecarioResponse")
-    public void agregarBibliotecario(
-        @WebParam(name = "arg0", targetNamespace = "")
-        DtBibliotecario arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerTodasLasZonas", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerTodasLasZonas")
-    @ResponseWrapper(localName = "obtenerTodasLasZonasResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerTodasLasZonasResponse")
-    @Action(input = "http://publicadores/ControladorPublish/obtenerTodasLasZonasRequest", output = "http://publicadores/ControladorPublish/obtenerTodasLasZonasResponse")
-    public List<String> obtenerTodasLasZonas();
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @return
@@ -106,42 +43,6 @@ public interface ControladorPublish {
         DtFecha arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         DtFecha arg1);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "agregarLector", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLector")
-    @ResponseWrapper(localName = "agregarLectorResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLectorResponse")
-    @Action(input = "http://publicadores/ControladorPublish/agregarLectorRequest", output = "http://publicadores/ControladorPublish/agregarLectorResponse")
-    public void agregarLector(
-        @WebParam(name = "arg0", targetNamespace = "")
-        DtLector arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarMateriales", targetNamespace = "http://publicadores/", className = "publicadores.ListarMateriales")
-    @ResponseWrapper(localName = "listarMaterialesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarMaterialesResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarMaterialesRequest", output = "http://publicadores/ControladorPublish/listarMaterialesResponse")
-    public List<String> listarMateriales();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarIdsMateriales", targetNamespace = "http://publicadores/", className = "publicadores.ListarIdsMateriales")
-    @ResponseWrapper(localName = "listarIdsMaterialesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarIdsMaterialesResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarIdsMaterialesRequest", output = "http://publicadores/ControladorPublish/listarIdsMaterialesResponse")
-    public List<String> listarIdsMateriales();
 
     /**
      * 
@@ -177,10 +78,252 @@ public interface ControladorPublish {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarLectores", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectores")
+    @ResponseWrapper(localName = "listarLectoresResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectoresResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarLectoresRequest", output = "http://publicadores/ControladorPublish/listarLectoresResponse")
+    public List<String> listarLectores();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarBibliotecarios", targetNamespace = "http://publicadores/", className = "publicadores.ListarBibliotecarios")
+    @ResponseWrapper(localName = "listarBibliotecariosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarBibliotecariosResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarBibliotecariosRequest", output = "http://publicadores/ControladorPublish/listarBibliotecariosResponse")
+    public List<String> listarBibliotecarios();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPrestamos", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamos")
+    @ResponseWrapper(localName = "listarPrestamosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarPrestamosRequest", output = "http://publicadores/ControladorPublish/listarPrestamosResponse")
+    public List<String> listarPrestamos();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerTodasLasZonas", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerTodasLasZonas")
+    @ResponseWrapper(localName = "obtenerTodasLasZonasResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerTodasLasZonasResponse")
+    @Action(input = "http://publicadores/ControladorPublish/obtenerTodasLasZonasRequest", output = "http://publicadores/ControladorPublish/obtenerTodasLasZonasResponse")
+    public List<String> obtenerTodasLasZonas();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarIdsMateriales", targetNamespace = "http://publicadores/", className = "publicadores.ListarIdsMateriales")
+    @ResponseWrapper(localName = "listarIdsMaterialesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarIdsMaterialesResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarIdsMaterialesRequest", output = "http://publicadores/ControladorPublish/listarIdsMaterialesResponse")
+    public List<String> listarIdsMateriales();
+
+    /**
+     * 
+     * @param arg0
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @RequestWrapper(localName = "agregarPrestamo", targetNamespace = "http://publicadores/", className = "publicadores.AgregarPrestamo")
+    @ResponseWrapper(localName = "agregarPrestamoResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarPrestamoResponse")
+    @Action(input = "http://publicadores/ControladorPublish/agregarPrestamoRequest", output = "http://publicadores/ControladorPublish/agregarPrestamoResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://publicadores/ControladorPublish/agregarPrestamo/Fault/Exception")
+    })
+    public void agregarPrestamo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        DtPrestamo arg0)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerPrestamosDeZona", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerPrestamosDeZona")
+    @ResponseWrapper(localName = "obtenerPrestamosDeZonaResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerPrestamosDeZonaResponse")
+    @Action(input = "http://publicadores/ControladorPublish/obtenerPrestamosDeZonaRequest", output = "http://publicadores/ControladorPublish/obtenerPrestamosDeZonaResponse")
+    public List<String> obtenerPrestamosDeZona(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarMateriales", targetNamespace = "http://publicadores/", className = "publicadores.ListarMateriales")
+    @ResponseWrapper(localName = "listarMaterialesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarMaterialesResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarMaterialesRequest", output = "http://publicadores/ControladorPublish/listarMaterialesResponse")
+    public List<String> listarMateriales();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "agregarArticulo", targetNamespace = "http://publicadores/", className = "publicadores.AgregarArticulo")
+    @ResponseWrapper(localName = "agregarArticuloResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarArticuloResponse")
+    @Action(input = "http://publicadores/ControladorPublish/agregarArticuloRequest", output = "http://publicadores/ControladorPublish/agregarArticuloResponse")
+    public void agregarArticulo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        DtArticulo arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "agregarLibro", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLibro")
+    @ResponseWrapper(localName = "agregarLibroResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLibroResponse")
+    @Action(input = "http://publicadores/ControladorPublish/agregarLibroRequest", output = "http://publicadores/ControladorPublish/agregarLibroResponse")
+    public void agregarLibro(
+        @WebParam(name = "arg0", targetNamespace = "")
+        DtLibro arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "agregarLector", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLector")
+    @ResponseWrapper(localName = "agregarLectorResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLectorResponse")
+    @Action(input = "http://publicadores/ControladorPublish/agregarLectorRequest", output = "http://publicadores/ControladorPublish/agregarLectorResponse")
+    public void agregarLector(
+        @WebParam(name = "arg0", targetNamespace = "")
+        DtLector arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "agregarBibliotecario", targetNamespace = "http://publicadores/", className = "publicadores.AgregarBibliotecario")
+    @ResponseWrapper(localName = "agregarBibliotecarioResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarBibliotecarioResponse")
+    @Action(input = "http://publicadores/ControladorPublish/agregarBibliotecarioRequest", output = "http://publicadores/ControladorPublish/agregarBibliotecarioResponse")
+    public void agregarBibliotecario(
+        @WebParam(name = "arg0", targetNamespace = "")
+        DtBibliotecario arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerMaterialesConPrestamosPendientes", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerMaterialesConPrestamosPendientes")
+    @ResponseWrapper(localName = "obtenerMaterialesConPrestamosPendientesResponse", targetNamespace = "http://publicadores/", className = "publicadores.ObtenerMaterialesConPrestamosPendientesResponse")
+    @Action(input = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesRequest", output = "http://publicadores/ControladorPublish/obtenerMaterialesConPrestamosPendientesResponse")
+    public List<String> obtenerMaterialesConPrestamosPendientes();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarMaterialesConMuchosPrestamos", targetNamespace = "http://publicadores/", className = "publicadores.ListarMaterialesConMuchosPrestamos")
+    @ResponseWrapper(localName = "listarMaterialesConMuchosPrestamosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarMaterialesConMuchosPrestamosResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarMaterialesConMuchosPrestamosRequest", output = "http://publicadores/ControladorPublish/listarMaterialesConMuchosPrestamosResponse")
+    public List<String> listarMaterialesConMuchosPrestamos(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns publicadores.DtUsuario
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "login", targetNamespace = "http://publicadores/", className = "publicadores.Login")
+    @ResponseWrapper(localName = "loginResponse", targetNamespace = "http://publicadores/", className = "publicadores.LoginResponse")
+    @Action(input = "http://publicadores/ControladorPublish/loginRequest", output = "http://publicadores/ControladorPublish/loginResponse")
+    public DtUsuario login(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listarLectoresSuspendidos", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectoresSuspendidos")
     @ResponseWrapper(localName = "listarLectoresSuspendidosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectoresSuspendidosResponse")
     @Action(input = "http://publicadores/ControladorPublish/listarLectoresSuspendidosRequest", output = "http://publicadores/ControladorPublish/listarLectoresSuspendidosResponse")
     public List<String> listarLectoresSuspendidos();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPrestamosString", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosString")
+    @ResponseWrapper(localName = "listarPrestamosStringResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosStringResponse")
+    @Action(input = "http://publicadores/ControladorPublish/listarPrestamosStringRequest", output = "http://publicadores/ControladorPublish/listarPrestamosStringResponse")
+    public List<String> listarPrestamosString();
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "cambiarZona", targetNamespace = "http://publicadores/", className = "publicadores.CambiarZona")
+    @ResponseWrapper(localName = "cambiarZonaResponse", targetNamespace = "http://publicadores/", className = "publicadores.CambiarZonaResponse")
+    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
+    public void cambiarZona(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "loginConNombre", targetNamespace = "http://publicadores/", className = "publicadores.LoginConNombre")
+    @ResponseWrapper(localName = "loginConNombreResponse", targetNamespace = "http://publicadores/", className = "publicadores.LoginConNombreResponse")
+    @Action(input = "http://publicadores/ControladorPublish/loginConNombreRequest", output = "http://publicadores/ControladorPublish/loginConNombreResponse")
+    public String loginConNombre(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 
@@ -205,83 +348,6 @@ public interface ControladorPublish {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPrestamosString", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosString")
-    @ResponseWrapper(localName = "listarPrestamosStringResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosStringResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarPrestamosStringRequest", output = "http://publicadores/ControladorPublish/listarPrestamosStringResponse")
-    public List<String> listarPrestamosString();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPrestamos", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamos")
-    @ResponseWrapper(localName = "listarPrestamosResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarPrestamosResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarPrestamosRequest", output = "http://publicadores/ControladorPublish/listarPrestamosResponse")
-    public List<String> listarPrestamos();
-
-    /**
-     * 
-     * @param arg0
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @RequestWrapper(localName = "agregarPrestamo", targetNamespace = "http://publicadores/", className = "publicadores.AgregarPrestamo")
-    @ResponseWrapper(localName = "agregarPrestamoResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarPrestamoResponse")
-    @Action(input = "http://publicadores/ControladorPublish/agregarPrestamoRequest", output = "http://publicadores/ControladorPublish/agregarPrestamoResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://publicadores/ControladorPublish/agregarPrestamo/Fault/Exception")
-    })
-    public void agregarPrestamo(
-        @WebParam(name = "arg0", targetNamespace = "")
-        DtPrestamo arg0)
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "agregarArticulo", targetNamespace = "http://publicadores/", className = "publicadores.AgregarArticulo")
-    @ResponseWrapper(localName = "agregarArticuloResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarArticuloResponse")
-    @Action(input = "http://publicadores/ControladorPublish/agregarArticuloRequest", output = "http://publicadores/ControladorPublish/agregarArticuloResponse")
-    public void agregarArticulo(
-        @WebParam(name = "arg0", targetNamespace = "")
-        DtArticulo arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarLectores", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectores")
-    @ResponseWrapper(localName = "listarLectoresResponse", targetNamespace = "http://publicadores/", className = "publicadores.ListarLectoresResponse")
-    @Action(input = "http://publicadores/ControladorPublish/listarLectoresRequest", output = "http://publicadores/ControladorPublish/listarLectoresResponse")
-    public List<String> listarLectores();
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "agregarLibro", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLibro")
-    @ResponseWrapper(localName = "agregarLibroResponse", targetNamespace = "http://publicadores/", className = "publicadores.AgregarLibroResponse")
-    @Action(input = "http://publicadores/ControladorPublish/agregarLibroRequest", output = "http://publicadores/ControladorPublish/agregarLibroResponse")
-    public void agregarLibro(
-        @WebParam(name = "arg0", targetNamespace = "")
-        DtLibro arg0);
-
-    /**
-     * 
      * @param arg0
      */
     @WebMethod
@@ -291,56 +357,5 @@ public interface ControladorPublish {
     public void suspenderUsuario(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "loginConNombre", targetNamespace = "http://publicadores/", className = "publicadores.LoginConNombre")
-    @ResponseWrapper(localName = "loginConNombreResponse", targetNamespace = "http://publicadores/", className = "publicadores.LoginConNombreResponse")
-    @Action(input = "http://publicadores/ControladorPublish/loginConNombreRequest", output = "http://publicadores/ControladorPublish/loginConNombreResponse")
-    public String loginConNombre(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns publicadores.DtUsuario
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "login", targetNamespace = "http://publicadores/", className = "publicadores.Login")
-    @ResponseWrapper(localName = "loginResponse", targetNamespace = "http://publicadores/", className = "publicadores.LoginResponse")
-    @Action(input = "http://publicadores/ControladorPublish/loginRequest", output = "http://publicadores/ControladorPublish/loginResponse")
-    public DtUsuario login(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "cambiarZona", targetNamespace = "http://publicadores/", className = "publicadores.CambiarZona")
-    @ResponseWrapper(localName = "cambiarZonaResponse", targetNamespace = "http://publicadores/", className = "publicadores.CambiarZonaResponse")
-    @Action(input = "http://publicadores/ControladorPublish/cambiarZonaRequest", output = "http://publicadores/ControladorPublish/cambiarZonaResponse")
-    public void cambiarZona(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
 
 }

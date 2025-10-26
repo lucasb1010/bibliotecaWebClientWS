@@ -14,6 +14,29 @@ public class AgregarPrestamo extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			// Verificar si hay un usuario logueado
+			String emailUsuario = (String) req.getSession().getAttribute("email");
+			String tipoUsuario = (String) req.getSession().getAttribute("tipoUsuario");
+			
+			if (emailUsuario == null) {
+				req.setAttribute("error", "Debe iniciar sesión para acceder a esta página.");
+				req.getRequestDispatcher("/error.jsp").forward(req, resp);
+				return;
+			}
+			
+			// Si es un lector, verificar si está suspendido
+			if (tipoUsuario != null && tipoUsuario.equals("DtLector")) {
+				ControladorPublishService service = new ControladorPublishService();
+				ControladorPublish port = service.getControladorPublishPort();
+				
+				List<String> lectoresSuspendidos = port.listarLectoresSuspendidos();
+				if (lectoresSuspendidos != null && lectoresSuspendidos.contains(emailUsuario)) {
+					req.setAttribute("error", "Acceso denegado: Estás suspendido y no puedes solicitar préstamos.");
+					req.getRequestDispatcher("/error.jsp").forward(req, resp);
+					return;
+				}
+			}
+			
 			ControladorPublishService service = new ControladorPublishService();
 			ControladorPublish port = service.getControladorPublishPort();
 
@@ -48,6 +71,9 @@ public class AgregarPrestamo extends HttpServlet {
 				return;
 			}
 
+			ControladorPublishService service = new ControladorPublishService();
+			ControladorPublish port = service.getControladorPublishPort();
+
 			Long materialId = Long.parseLong(materialIdStr);
 
 			DtPrestamo dt = new DtPrestamo();
@@ -65,8 +91,6 @@ public class AgregarPrestamo extends HttpServlet {
 				if (fd != null) dt.setFechaDevolucion(fd);
 			}
 
-			ControladorPublishService service = new ControladorPublishService();
-			ControladorPublish port = service.getControladorPublishPort();
 			port.agregarPrestamo(dt);
 
 			req.setAttribute("mensaje", "Préstamo creado exitosamente.");

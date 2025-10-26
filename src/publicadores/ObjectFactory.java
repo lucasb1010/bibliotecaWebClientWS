@@ -55,6 +55,8 @@ public class ObjectFactory {
     private final static QName _ListarLectoresSuspendidos_QNAME = new QName("http://publicadores/", "listarLectoresSuspendidos");
     private final static QName _ListarLectoresSuspendidosResponse_QNAME = new QName("http://publicadores/", "listarLectoresSuspendidosResponse");
     private final static QName _ListarMateriales_QNAME = new QName("http://publicadores/", "listarMateriales");
+    private final static QName _ListarMaterialesConMuchosPrestamos_QNAME = new QName("http://publicadores/", "listarMaterialesConMuchosPrestamos");
+    private final static QName _ListarMaterialesConMuchosPrestamosResponse_QNAME = new QName("http://publicadores/", "listarMaterialesConMuchosPrestamosResponse");
     private final static QName _ListarMaterialesResponse_QNAME = new QName("http://publicadores/", "listarMaterialesResponse");
     private final static QName _ListarPrestamos_QNAME = new QName("http://publicadores/", "listarPrestamos");
     private final static QName _ListarPrestamosLector_QNAME = new QName("http://publicadores/", "listarPrestamosLector");
@@ -333,6 +335,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarMaterialesConMuchosPrestamos }
+     * 
+     */
+    public ListarMaterialesConMuchosPrestamos createListarMaterialesConMuchosPrestamos() {
+        return new ListarMaterialesConMuchosPrestamos();
+    }
+
+    /**
+     * Create an instance of {@link ListarMaterialesConMuchosPrestamosResponse }
+     * 
+     */
+    public ListarMaterialesConMuchosPrestamosResponse createListarMaterialesConMuchosPrestamosResponse() {
+        return new ListarMaterialesConMuchosPrestamosResponse();
+    }
+
+    /**
      * Create an instance of {@link ListarMaterialesResponse }
      * 
      */
@@ -501,19 +519,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtBibliotecario }
-     * 
-     */
-    public DtBibliotecario createDtBibliotecario() {
-        return new DtBibliotecario();
-    }
-
-    /**
      * Create an instance of {@link DtLector }
      * 
      */
     public DtLector createDtLector() {
         return new DtLector();
+    }
+
+    /**
+     * Create an instance of {@link DtBibliotecario }
+     * 
+     */
+    public DtBibliotecario createDtBibliotecario() {
+        return new DtBibliotecario();
     }
 
     /**
@@ -917,6 +935,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://publicadores/", name = "listarMateriales")
     public JAXBElement<ListarMateriales> createListarMateriales(ListarMateriales value) {
         return new JAXBElement<ListarMateriales>(_ListarMateriales_QNAME, ListarMateriales.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMaterialesConMuchosPrestamos }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarMaterialesConMuchosPrestamos }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarMaterialesConMuchosPrestamos")
+    public JAXBElement<ListarMaterialesConMuchosPrestamos> createListarMaterialesConMuchosPrestamos(ListarMaterialesConMuchosPrestamos value) {
+        return new JAXBElement<ListarMaterialesConMuchosPrestamos>(_ListarMaterialesConMuchosPrestamos_QNAME, ListarMaterialesConMuchosPrestamos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMaterialesConMuchosPrestamosResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ListarMaterialesConMuchosPrestamosResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://publicadores/", name = "listarMaterialesConMuchosPrestamosResponse")
+    public JAXBElement<ListarMaterialesConMuchosPrestamosResponse> createListarMaterialesConMuchosPrestamosResponse(ListarMaterialesConMuchosPrestamosResponse value) {
+        return new JAXBElement<ListarMaterialesConMuchosPrestamosResponse>(_ListarMaterialesConMuchosPrestamosResponse_QNAME, ListarMaterialesConMuchosPrestamosResponse.class, null, value);
     }
 
     /**

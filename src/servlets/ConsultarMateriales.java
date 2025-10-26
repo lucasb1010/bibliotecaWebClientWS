@@ -13,9 +13,10 @@ import publicadores.DtFecha;
 public class ConsultarMateriales extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			// Obtener parámetros de filtro de fechas
+			// Obtener parámetros de filtro de fechas y préstamos
 			String fechaDesdeStr = req.getParameter("fechaDesde");
 			String fechaHastaStr = req.getParameter("fechaHasta");
+			String prestamosMinimosStr = req.getParameter("prestamosMinimos");
 			
 			List<String> materialesList;
 			
@@ -41,9 +42,32 @@ public class ConsultarMateriales extends HttpServlet {
 			System.out.println("=== ConsultarMateriales Debug ===");
 			System.out.println("fechaDesdeStr: " + fechaDesdeStr);
 			System.out.println("fechaHastaStr: " + fechaHastaStr);
+			System.out.println("prestamosMinimosStr: " + prestamosMinimosStr);
 			
+			// Verificar si se proporcionó filtro de préstamos
+			if (prestamosMinimosStr != null && !prestamosMinimosStr.trim().isEmpty()) {
+				try {
+					int prestamosMinimos = Integer.parseInt(prestamosMinimosStr);
+					System.out.println("Filtrando materiales con " + prestamosMinimos + " o más préstamos...");
+					
+					materialesList = port.listarMaterialesConMuchosPrestamos(prestamosMinimos);
+					System.out.println("Materiales con muchos préstamos obtenidos: " + (materialesList != null ? materialesList.size() : "null"));
+					
+					req.setAttribute("mensaje", "Materiales con " + prestamosMinimos + " o más préstamos (" + (materialesList != null ? materialesList.size() : 0) + " resultados)");
+					
+				} catch (NumberFormatException e) {
+					System.err.println("Error al parsear número de préstamos: " + e.getMessage());
+					req.setAttribute("mensaje", "Error: El número de préstamos debe ser un valor numérico válido. Mostrando todos los materiales.");
+					materialesList = port.listarMateriales();
+				} catch (Exception e) {
+					System.err.println("Error al filtrar por préstamos: " + e.getMessage());
+					e.printStackTrace();
+					req.setAttribute("mensaje", "Error al filtrar por préstamos: " + e.getMessage() + ". Mostrando todos los materiales.");
+					materialesList = port.listarMateriales();
+				}
+			}
 			// Verificar si se proporcionaron fechas para filtrar
-			if (fechaDesdeStr != null && !fechaDesdeStr.trim().isEmpty() && 
+			else if (fechaDesdeStr != null && !fechaDesdeStr.trim().isEmpty() && 
 				fechaHastaStr != null && !fechaHastaStr.trim().isEmpty()) {
 				
 				try {

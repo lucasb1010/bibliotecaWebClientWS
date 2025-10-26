@@ -70,6 +70,7 @@
                     <a href="prestamosPorZona" style="background: #00BCD4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📊 Préstamos por Zona</a>
                 <% } else { %>
                     <a href="misPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Mis Préstamos</a>
+                    <a href="agregarPrestamo" style="background: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📝 Solicitar Préstamo</a>
                 <% } %>
                 <a href="logout" style="background: #f44336; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">🚪 Cerrar Sesión</a>
             </div>
