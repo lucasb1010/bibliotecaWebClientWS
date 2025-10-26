@@ -395,3 +395,27 @@ h2 {
 .toast.removing {
     animation: slideOut 0.3s ease-in forwards;
 }
+
+#logout {
+    color: var(--rojoOscuro);
+}
+
+#logout:hover {
+    background-color: var(--rojoOscuro);
+    color: var(--crema);
+}
+
+.div_info_acceso {
+    background: var(--verdeOscuro--hover);
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.p_info_acceso {
+    margin: 0;
+    color: var(--crema);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
