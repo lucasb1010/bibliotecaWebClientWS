@@ -24,6 +24,7 @@
             <a href="consultar-usuarios">Ver Usuarios</a>
             <a href="agregarMaterial">Agregar Material</a>
             <a href="listarPrestamos">Ver Préstamos</a>
+            <a href="prestamosPorZona">📊 Préstamos por Zona</a>
         <% } else { %>
             <a href="misPrestamos">Mis Préstamos</a>
         <% } %>

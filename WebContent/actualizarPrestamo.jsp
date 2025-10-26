@@ -91,6 +91,7 @@
       <a href="agregarMaterial">Agregar Material</a>
       <a href="agregarPrestamo">Agregar Préstamo</a>
       <a href="listarPrestamos">Ver Préstamos</a>
+      <a href="prestamosPorZona">📊 Préstamos por Zona</a>
       <a href="logout" style="color: #dc3545;">Cerrar Sesión</a>
     </div>
     

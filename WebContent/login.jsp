@@ -67,6 +67,7 @@
                     <a href="historialPrestamosBibliotecario" style="background: #E91E63; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📚 Mi Historial</a>
                     <a href="consultarHistorialLector" style="background: #9C27B0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">🔍 Consultar Historial de Lector</a>
                     <a href="agregarMaterial" style="background: #FF9800; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">➕ Agregar Material</a>
+                    <a href="prestamosPorZona" style="background: #00BCD4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📊 Préstamos por Zona</a>
                 <% } else { %>
                     <a href="misPrestamos" style="background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 0 10px; display: inline-block;">📋 Mis Préstamos</a>
                 <% } %>

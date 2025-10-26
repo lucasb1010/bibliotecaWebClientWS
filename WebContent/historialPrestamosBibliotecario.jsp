@@ -20,6 +20,7 @@
             <a href="agregarPrestamo">Agregar Préstamo</a>
             <a href="listarPrestamos">Ver Todos los Préstamos</a>
             <a href="historialPrestamosBibliotecario">Mi Historial</a>
+            <a href="prestamosPorZona">📊 Préstamos por Zona</a>
             <a href="logout">Cerrar Sesión</a>
         </div>
         

@@ -1,0 +1,340 @@
+/* Estilos específicos para el reporte de préstamos por zona */
+.report-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--crema);
+    border-radius: 10px;
+    box-shadow: 6px 4px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
+}
+
+h2 {
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-medio);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.navigation {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.navigation a {
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 7px;
+    display: inline-block;
+}
+
+.navigation a:hover {
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+}
+
+.error {
+    background-color: var(--rojoClaro);
+    color: var(--rojoOscuro);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--rojoOscuro);
+}
+
+/* Selector de zona */
+.zone-selector {
+    background-color: rgba(34, 73, 56, 0.1);
+    border: 2px solid var(--verdeOscuro);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.zone-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.zone-form label {
+    font-weight: bold;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-nav);
+}
+
+.zone-form select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 2px solid var(--verdeOscuro);
+    border-radius: 5px;
+    font-size: var(--tamaño-letra-nav);
+    background-color: var(--crema);
+    color: var(--grisOscuro);
+}
+
+.zone-form select:focus {
+    outline: none;
+    border-color: var(--verdeOscuro);
+    box-shadow: 0 0 0 3px rgba(34, 73, 56, 0.1);
+}
+
+.btn-search {
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: var(--tamaño-letra-nav);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-search:hover {
+    background-color: var(--verdeMedio);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estadísticas */
+.stats-section {
+    background-color: rgba(34, 73, 56, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 150px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Lista de préstamos */
+.loans-section {
+    margin-top: 30px;
+}
+
+.loans-list {
+    list-style: none;
+    padding: 0;
+}
+
+.loan-item {
+    background-color: rgba(34, 73, 56, 0.2);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.loan-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.loan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.loan-id {
+    font-weight: bold;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-nav);
+}
+
+.loan-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-activo {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-devuelto {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.loan-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.detail-item {
+    background-color: var(--crema);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid var(--verdeOscuro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-label {
+    font-weight: bold;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-chico);
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: var(--grisOscuro);
+    font-size: 1.1rem;
+}
+
+.no-loans {
+    text-align: center;
+    padding: 40px;
+    color: var(--grisOscuro);
+    font-style: italic;
+    background-color: rgba(34, 73, 56, 0.2);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.no-loans h3 {
+    color: var(--verdeOscuro);
+    margin-bottom: 10px;
+}
+
+.help-text {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(34, 73, 56, 0.1);
+    border-radius: 10px;
+    color: var(--grisOscuro);
+    font-size: var(--tamaño-letra-nav);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .report-container {
+        max-width: 100%;
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .zone-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .zone-form select {
+        width: 100%;
+    }
+    
+    .btn-search {
+        width: 100%;
+    }
+    
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .loan-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .loan-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .report-container {
+        margin: 5px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .stat-card {
+        margin: 5px 0;
+    }
+    
+    .zone-selector {
+        padding: 15px;
+    }
+}
+
