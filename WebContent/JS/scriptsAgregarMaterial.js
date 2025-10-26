@@ -52,3 +52,40 @@ document.addEventListener('DOMContentLoaded', function() {
         fechaInput.value = today;
     }
 });
+
+/**/
+
+// Cargar datos actuales del préstamo si están disponibles
+window.onload = function() {
+    // Extraer datos del préstamo desde la información mostrada
+    const prestamoInfo = '<%= request.getAttribute("prestamoInfo") %>';
+
+    if (prestamoInfo && prestamoInfo !== 'null') {
+        // Extraer fechas del formato: "Préstamo - Lector: correo, Bibliotecario: correo, Material: id, Estado: ESTADO"
+        // Buscar fechas en formato DD/MM/YYYY
+        const fechaSolicitudMatch = prestamoInfo.match(/Solicitud (\d{2}\/\d{2}\/\d{4})/);
+        const fechaDevolucionMatch = prestamoInfo.match(/Devolución (\d{2}\/\d{2}\/\d{4})/);
+        const estadoMatch = prestamoInfo.match(/Estado (\w+)/);
+        
+        if (fechaSolicitudMatch) {
+            const fecha = fechaSolicitudMatch[1].split('/');
+            document.getElementById('diaSolicitud').value = fecha[0];
+            document.getElementById('mesSolicitud').value = fecha[1];
+            document.getElementById('anioSolicitud').value = fecha[2];
+        }
+        
+        if (fechaDevolucionMatch) {
+            const fecha = fechaDevolucionMatch[1].split('/');
+            document.getElementById('diaDevolucion').value = fecha[0];
+            document.getElementById('mesDevolucion').value = fecha[1];
+            document.getElementById('anioDevolucion').value = fecha[2];
+        }
+        
+        if (estadoMatch) {
+            document.getElementById('estado').value = estadoMatch[1];
+        }
+        
+        // Los campos de selección ya están pre-seleccionados por el servidor
+        // No necesitamos JavaScript adicional para estos campos
+    }
+};

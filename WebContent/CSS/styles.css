@@ -15,7 +15,7 @@ html {
     --crema: #f1ece1;
     --blanco: #e8f2ff;
     --rojoOscuro: #721c24;
-    --rojoClaro: #f8d7da;
+    --rojoClaro: #ecd9db;
 
     --tamaño-letra-título-grande: 40px;
     --tamaño-letra-título-medio: 30px;
@@ -33,4 +33,38 @@ body {
 a, button {
     text-decoration: none;
     cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
+}
+
+.navigation { 
+    text-align: center;
+    margin-bottom: 30px; 
+}
+
+.navigation a { 
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 7px;
+}
+
+.navigation a:hover {
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+}
+
+#logout {
+    color: var(--rojoOscuro);
+}
+
+#logout:hover {
+    background-color: var(--rojoOscuro);
+    color: var(--crema);
 }
