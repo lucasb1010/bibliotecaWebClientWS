@@ -1,9 +1,13 @@
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
+}
+
 .navigation {
     text-align: center;
     margin-bottom: 30px;
-    padding: 15px;
-    background-color: transparent;
-    border-radius: 5px;
 }
 
 .navigation a {
@@ -13,6 +17,7 @@
     font-weight: bold;
     font-size: 20px;
     border-radius: 7px;
+    display: inline-block;
 }
 
 .navigation a:hover {
@@ -20,17 +25,38 @@
     color: var(--crema);
 }
 
-.add-button {
-    background-color: var(--verdeOscuro);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 20px;
+#logout {
+    color: var(--rojoOscuro);
 }
 
-.add-button:hover {
+#logout:hover {
+    background-color: var(--rojoOscuro);
+    color: var(--crema);
+}
+
+.add-button {
+    padding: 12px 30px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.btn-filter {
+border: none;
+    padding: 8px 16px;
+}
+
+.btn-filter, .add-button {
+    background-color: var(--verdeOscuro);
+    transition: background-color 0.3s;
+    color: var(--crema);
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-button:hover, .btn-filter:hover {
     background-color: var(--verdeOscuro--hover);
 }
 
@@ -41,20 +67,176 @@
     background-color: var(--crema);
     border-radius: 10px;
     box-shadow: 6px 4px 6px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
-.div {
-    background-color: #c9c9c9;
-    color: #224938;
-    padding: 15px;
+/* Estilos para el filtro de fechas */
+.filter-container {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-container h2 {
+    margin: 0 0 15px 0;
+    color: var(--grisOscuro);
+    font-size: 20px;
+}
+
+.filter-info {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.filter-info p {
+    margin: 0;
+    color: var(--grisClaro);
+}
+
+.date-filter-form {
+    margin: 0;
+}
+
+.filter-row {
+    display: flex;
+    gap: 15px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-group input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #ced4da;
     border-radius: 5px;
-    margin: 20px 0;
-    border-left: 4px solid #224938;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    font-family: inherit;
 }
 
-h1 {
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--verdeOscuro);
-    font-size: var(--tamaño-letra-título-grande);
+.filter-group input[type="date"]:focus {
+    outline: none;
+    border-color: var(--verdeOscuro);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-clear {
+    background: var(--grisOscuro);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.btn-clear:hover {
+    background: #5a6268;
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .materials-container {
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .navigation a{
+        display: block;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        word-wrap: break-word;
+    }
+
+    .filter-row {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .materials-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .add-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    li {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Responsive para el filtro */
+    .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        min-width: auto;
+    }
+
+    .filter-actions {
+        justify-content: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .btn-filter, .btn-clear {
+        flex: 1;
+    }
+
+    .btn-clear {
+        text-align: center;
+    }
+
+    .add-button {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

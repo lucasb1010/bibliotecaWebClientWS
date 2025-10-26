@@ -1,29 +1,10 @@
-.form-container {
+.container { 
     max-width: 800px;
     margin: 50px auto;
     padding: 30px;
     background-color: var(--crema);
     border-radius: 10px;
     box-shadow: 6px 4px 6px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: var(--verdeOscuro);
-    font-size: var(--tamaño-letra-título-grande);
-}
-
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-
-.form-row .form-group {
-    flex: 1;
 }
 
 label {
@@ -34,91 +15,18 @@ label {
     font-size: var(--tamaño-letra-título-chico);
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    font-family: inherit;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--verdeOscuro);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.required {
-    color: var(--rojoOscuro);
-}
-
-.btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background-color: var(--verdeOscuro);
-    color: var(--crema);
-}
-
-.btn-primary:hover {
-    background-color: var(--verdeOscuro--hover);
-}
-
-.btn-secondary {
-    background-color: var(--grisOscuro);
-    color: var(--crema);
-    margin-left: 10px;
-}
-
-.btn-secondary:hover {
-    background-color: var(--grisClaro);
-}
-
-.error {
-    background-color: var(--rojoClaro);
-    color: var(--rojoOscuro);
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    border: 1px solid var(--rojoOscuro);
-}
-
-.success {
-    background-color: #d4edda;
-    color: var(--verdeOscuro);
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    border: 1px solid var(--verdeOscuro);
-}
-
-.navigation {
+h1 {
     text-align: center;
-    margin-bottom: 30px;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
 }
 
-.navigation a {
+.navigation { 
+    text-align: center;
+    margin-bottom: 30px; 
+}
+
+.navigation a { 
     color: var(--verdeOscuro);
     text-decoration: none;
     padding: 5px 10px;
@@ -132,15 +40,102 @@ textarea {
     color: var(--crema);
 }
 
-@media (width < 550px) {
-    .navigation {
-        display: flex;
-        flex-direction: column;
-    }
+.form-group { 
+    margin-bottom: 20px; 
 }
 
-@media (width < 400px) {
-    .btn-primary {
-        margin-bottom: 20px;
+label { 
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--grisOscuro);
+    font-size: var(--tamaño-letra-título-chico);
+}
+
+select, input[type="date"] { 
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    font-family: inherit;
+}
+
+.btn { 
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+}
+
+.btn:hover {
+    background-color: var(--verdeOscuro--hover);
+}
+
+.btn-secondary {
+    background-color: var(--grisOscuro);
+    color: var(--crema);
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--grisClaro);
+}
+
+.row { 
+    display: flex; 
+    gap: 16px; 
+}
+.row .form-group { 
+    flex: 1; 
+}
+.alert { 
+    padding: 12px; 
+    border-radius: 6px; 
+    margin-bottom: 12px; 
+}
+
+.alert-error { 
+    background-color: var(--rojoClaro);
+    color: var(--rojoOscuro);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--rojoOscuro);
+}
+
+.alert-success { 
+    background-color: #d4edda;
+    color: var(--verdeOscuro);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--verdeOscuro);
+}
+
+@media (max-width: 768px) {
+    .container { 
+        margin: 10px; 
+        padding: 16px; 
+    }
+    .row { 
+        flex-direction: 
+        column; gap: 0; 
+    }
+    .navigation { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 8px; 
+    }
+    .btn, .btn-secondary { 
+        width: 100%; 
+        margin-bottom: 8px; 
+        text-align: center; 
     }
 }
