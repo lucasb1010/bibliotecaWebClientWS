@@ -1,58 +1,74 @@
 .error-container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
     padding: 30px;
-    background: white;
+    background: var(--crema);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
-
 .error-icon {
-    font-size: 64px;
+    font-size: 6rem;
     margin-bottom: 20px;
+    color: var(--crema);
 }
-
 .error-title {
     color: var(--rojoOscuro);
-    font-size: 24px;
+    font-size: 1.8rem;
     margin-bottom: 15px;
 }
-
 .error-message {
     color: var(--grisOscuro);
-    font-size: 16px;
+    font-size: 1.1rem;
     margin-bottom: 30px;
-    padding: 15px;
-    background-color: var(--grisClaro);
-    border-radius: 5px;
-    border-left: 4px solid var(--rojoOscuro);
+    line-height: 1.5;
 }
-
+.error-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .btn {
-    display: inline-block;
     padding: 12px 24px;
-    margin: 10px;
-    text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 18px;
 }
-
 .btn-primary {
-    background-color: var(--verdeOscuro);
-    color: white;
+    background: var(--verdeOscuro);
+    color: var(--crema);
 }
-
 .btn-primary:hover {
-    background-color: var(--verdeOscuro--hover);
+    background: var(--verdeOscuro--hover);
 }
-
 .btn-secondary {
-    background-color: var(--grisOscuro);
-    color: white;
+    background: var(--grisOscuro);
+    color: var(--crema);
+}
+.btn-secondary:hover {
+    background: var(--grisClaro);
+}
+.btn-danger {
+    background: var(--rojoOscuro);
+    color: var(--crema);
+}
+.btn-danger:hover {
+    background: var(--rojoClaro);
 }
 
-.btn-secondary:hover {
-    background-color: var(--grisClaro);
+@media (width < 650px) {
+    .btn {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
 }
