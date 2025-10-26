@@ -2,8 +2,8 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 <%
-  String emailLector = (String) request.getAttribute("emailLector");
-  Map<String, List<String>> prestamosPorEstado = (Map<String, List<String>>) request.getAttribute("prestamosPorEstado");
+    String emailLector = (String) request.getAttribute("emailLector");
+    Map<String, List<String>> prestamosPorEstado = (Map<String, List<String>>) request.getAttribute("prestamosPorEstado");
 %>
 <!DOCTYPE html>
 <html lang="es">
