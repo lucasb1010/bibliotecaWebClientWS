@@ -126,6 +126,16 @@
     <url-pattern>/consultarHistorialLector</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ConsultarMaterialesPorPrestamos</servlet-name>
+    <servlet-class>servlets.ConsultarMaterialesPorPrestamosServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ConsultarMaterialesPorPrestamos</servlet-name>
+    <url-pattern>/consultarMaterialesPorPrestamos</url-pattern>
+  </servlet-mapping>
+
   <!-- Filtro administrativo para todas las páginas protegidas -->
   <filter>
     <filter-name>AdminFilter</filter-name>
@@ -165,6 +175,11 @@
   <filter-mapping>
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/consultarHistorialLector</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/consultarMaterialesPorPrestamos</url-pattern>
   </filter-mapping>
 
 </web-app>

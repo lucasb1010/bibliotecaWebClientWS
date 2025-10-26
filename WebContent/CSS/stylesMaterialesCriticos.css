@@ -1,0 +1,81 @@
+/* Estilos para la página Materiales Críticos */
+.critical-filter {
+    margin: 16px 0;
+}
+
+.umbral-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    label{
+        color: var(--grisOscuro);
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+.umbral-form input[type="number"] {
+    width: 100px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.criticals-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.criticals-table th, .criticals-table td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.criticals-table thead th {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+
+.criticals-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+.btn-filter {
+    display: inline-block;
+    background: var(--verdeOscuro);
+    color: var(--crema);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.btn-filter:hover {
+    background: var(--verdeOscuro--hover);
+}
+
+.mensaje {
+    color: var(--grisOscuro);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media (width < 600px) {
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .navigation a{
+        display: block;
+    }
+}
