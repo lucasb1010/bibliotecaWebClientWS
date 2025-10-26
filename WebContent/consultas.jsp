@@ -3,6 +3,8 @@
   // Declarar variables al inicio para evitar conflictos con includes
   String tipoUsuario = (String) session.getAttribute("tipoUsuario");
 %>
+<!DOCTYPE html>
+<html lang="es">
 <html>
   <head>
     <meta charset="UTF-8" />
