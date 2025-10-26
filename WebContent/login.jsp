@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
   // Declarar variables una sola vez al inicio
-  String nombreUsuario = (String) session.getAttribute("nombreUsuario");
-  String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+    String nombreUsuario = (String) session.getAttribute("nombreUsuario");
+    String tipoUsuario = (String) session.getAttribute("tipoUsuario");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +38,10 @@
             </svg>
 
             <p class="nav__acces__container__p" style="<% 
-                  if (nombreUsuario != null) {
+                    if (nombreUsuario != null) {
                 %>color: #4CAF50; font-weight: bold;<% } %>">
                 <% 
-                  if (nombreUsuario != null) {
+                    if (nombreUsuario != null) {
                 %>
                     👋 ¡Hola <%= nombreUsuario %>!
                 <% } else { %>
@@ -54,7 +54,7 @@
 
     <main class="main">
         <% 
-          if (nombreUsuario != null) {
+            if (nombreUsuario != null) {
         %>
             <h2 class="main__h2"> <span>📗 ¡Bienvenido de vuelta, </span> <span class="sup"><%= nombreUsuario %>!</span></h2>
             <p class="main__p">Explora nuestra colección de libros y recursos digitales.</p>
