@@ -1,0 +1,111 @@
+.lector-info {
+    background: var(--crema);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--verdeOscuro);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+}
+
+.prestamos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prestamo-item {
+    background: var(--blanco);
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.prestamo-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.prestamo-info {
+    line-height: 1.6;
+}
+
+.prestamo-info strong {
+    color: #495057;
+    font-weight: 600;
+}
+
+.estado-pendiente {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-en-curso {
+    background: #d1ecf1;
+    color: #0c5460;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-devuelto {
+    background: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    color: var(--grisOscuro);
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bold;
+    padding: 40px;
+    background: var(--blanco);
+    border-radius: 8px;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.alert-error {
+    background-color: var(--rojoClaro);
+    color: var(--rojoOscuro);
+    border: 1px solid var(--rojoOscuro);
+}
+
+.btn-back {
+    display: inline-block;
+    background: var(--grisOscuro);
+    color: var(--crema);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.btn-back:hover {
+    background: var(--grisClaro);
+}
+
+@media (max-width: 768px) {
+    .container { margin: 10px; padding: 16px; }
+    .navigation { display: flex; flex-direction: column; gap: 8px; }
+    .prestamo-item { padding: 15px; }
+}

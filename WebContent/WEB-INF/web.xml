@@ -97,6 +97,44 @@
     <url-pattern>/historialPrestamosBibliotecario</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ActualizarPrestamoServlet</servlet-name>
+    <servlet-class>servlets.ActualizarPrestamoServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ActualizarPrestamoServlet</servlet-name>
+    <url-pattern>/actualizarPrestamo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HistorialLectorServlet</servlet-name>
+    <servlet-class>servlets.HistorialLectorServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HistorialLectorServlet</servlet-name>
+    <url-pattern>/historialLector</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ConsultarHistorialLectorServlet</servlet-name>
+    <servlet-class>servlets.ConsultarHistorialLectorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultarHistorialLectorServlet</servlet-name>
+    <url-pattern>/consultarHistorialLector</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PrestamosPorZonaServlet</servlet-name>
+    <servlet-class>servlets.PrestamosPorZonaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrestamosPorZonaServlet</servlet-name>
+    <url-pattern>/prestamosPorZona</url-pattern>
+  </servlet-mapping>
+
   <!-- Filtro administrativo para todas las páginas protegidas -->
   <filter>
     <filter-name>AdminFilter</filter-name>
@@ -121,6 +159,26 @@
   <filter-mapping>
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/historialPrestamosBibliotecario</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/actualizarPrestamo</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/historialLector</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/consultarHistorialLector</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/prestamosPorZona</url-pattern>
   </filter-mapping>
 
 </web-app>

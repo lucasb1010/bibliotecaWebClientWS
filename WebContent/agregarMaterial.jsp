@@ -9,83 +9,97 @@
     <link rel="stylesheet" href="CSS/stylesAgregarMaterial.css">
 </head>
 <body>
-    <div class="form-container">
-        <h1 class="uppercase">Agregar Nuevo Material</h1>
-        
+    <div class="container">
+        <h1 class="uppercase">Agregar Material</h1>
+
         <div class="navigation">
             <a href="consultarMateriales">Ver Materiales</a>
-            <a href="consultar-usuarios">Ver Usuarios</a>
             <a href="agregarMaterial">Agregar Material</a>
+            <a href="agregarPrestamo">Agregar Préstamo</a>
+            <a href="listarPrestamos">Ver Préstamos</a>
+            <a href="prestamosPorZona">📊 Préstamos por Zona</a>
+            <a id="logout" href="logout">Cerrar Sesión</a>
         </div>
         
+        <%@ include file="includes/userGreeting.jsp" %>
+
         <% if (request.getAttribute("error") != null) { %>
-            <div class="error">
-                <%= request.getAttribute("error") %>
-            </div>
+        <div class="alert alert-error"><%= request.getAttribute("error") %></div>
         <% } %>
         
         <% if (request.getAttribute("mensaje") != null) { %>
-            <div class="success">
-                <%= request.getAttribute("mensaje") %>
-            </div>
+        <div class="alert alert-success"><%= request.getAttribute("mensaje") %></div>
         <% } %>
-        
-        <form action="agregarMaterial" method="post">
+
+        <form class="form" method="post" action="agregarMaterial">
+            <!-- Tipo de Material -->
             <div class="form-group">
-                <label for="tipo">Tipo de Material <span class="required">*</span></label>
-                <select name="tipo" id="tipo" required>
+                <label for="tipo">Tipo de Material:</label>
+                <select id="tipo" name="tipo" required onchange="toggleFields()">
                     <option value="">Seleccione un tipo</option>
                     <option value="libro">Libro</option>
                     <option value="articulo">Artículo</option>
                 </select>
             </div>
-            
-            <!-- Campos comunes de DtMaterial -->
+
+            <!-- Campos comunes -->
             <div class="form-group">
-                <label for="fechaIngreso">Fecha de Ingreso</label>
-                <input type="date" name="fechaIngreso" id="fechaIngreso">
+                <label for="fechaIngreso">Fecha de Ingreso:</label>
+                <input type="date" id="fechaIngreso" name="fechaIngreso">
             </div>
-            
-            <!-- Campos específicos del Libro -->
-            <div id="campos-libro" style="display: none;">
-                <h3>Información del Libro</h3>
+
+            <!-- Campos específicos para Libro -->
+            <div id="libroFields" class="material-fields" style="display: none;">
                 <div class="form-group">
-                    <label for="titulo">Título del Libro</label>
-                    <input type="text" name="titulo" id="titulo" placeholder="Ingrese el título del libro">
+                    <label for="titulo">Título del Libro:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título del libro">
                 </div>
-                
                 <div class="form-group">
-                    <label for="cantidadPaginas">Cantidad de Páginas</label>
-                    <input type="text" name="cantidadPaginas" id="cantidadPaginas" placeholder="Ingrese la cantidad de páginas">
+                    <label for="cantidadPaginas">Cantidad de Páginas:</label>
+                    <input type="number" id="cantidadPaginas" name="cantidadPaginas" min="1" placeholder="Número de páginas">
                 </div>
             </div>
-            
-            <!-- Campos específicos del Artículo -->
-            <div id="campos-articulo" style="display: none;">
-                <h3>Información del Artículo</h3>
+
+            <!-- Campos específicos para Artículo -->
+            <div id="articuloFields" class="material-fields" style="display: none;">
                 <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" rows="4" placeholder="Ingrese una descripción del artículo"></textarea>
+                    <label for="descripcion">Descripción del Artículo:</label>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del artículo">
                 </div>
-                
                 <div class="form-group">
-                    <label for="pesoKg">Peso (Kg)</label>
-                    <input type="number" name="pesoKg" id="pesoKg" min="0" step="0.1" placeholder="Ingrese el peso en kilogramos">
+                    <label for="pesoKg">Peso (kg):</label>
+                    <input type="number" id="pesoKg" name="pesoKg" min="0" step="0.1" placeholder="Peso en kilogramos">
                 </div>
-                
                 <div class="form-group">
-                    <label for="dimensiones">Dimensiones</label>
-                    <input type="text" name="dimensiones" id="dimensiones" placeholder="Ej: 20x15x3 cm">
+                    <label for="dimensiones">Dimensiones:</label>
+                    <input type="text" id="dimensiones" name="dimensiones" placeholder="Ej: 30x20x15 cm">
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <button type="submit" class="btn btn-primary">Agregar Material</button>
+            <div class="button-group">
+                <button type="submit" class="btn btn-success">Agregar Material</button>
                 <a href="consultarMateriales" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
-    <script src="JS/scriptsAgregarMaterial.js"></script>
-
+    
+    <script>
+        function toggleFields() {
+            const tipo = document.getElementById('tipo').value;
+            const libroFields = document.getElementById('libroFields');
+            const articuloFields = document.getElementById('articuloFields');
+            
+            // Ocultar todos los campos específicos
+            libroFields.style.display = 'none';
+            articuloFields.style.display = 'none';
+            
+            // Mostrar campos según el tipo seleccionado
+            if (tipo === 'libro') {
+                libroFields.style.display = 'block';
+            } else if (tipo === 'articulo') {
+                articuloFields.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -24,6 +24,7 @@
             <a href="consultar-usuarios">Ver Usuarios</a>
             <a href="agregarMaterial">Agregar Material</a>
             <a href="listarPrestamos">Ver Préstamos</a>
+            <a href="prestamosPorZona">📊 Préstamos por Zona</a>
         <% } else { %>
             <a href="misPrestamos">Mis Préstamos</a>
         <% } %>
@@ -35,9 +36,6 @@
       <!-- Filtro de fechas -->
       <div class="filter-container">
         <h3>🔍 Filtrar por Fecha de Ingreso</h3>
-        <div class="filter-info">
-          <p><strong>Nota:</strong> El filtro de fechas requiere que el backend tenga configurada correctamente la entidad Material con la propiedad fechaIngreso.</p>
-        </div>
         <form method="get" action="consultarMateriales" class="date-filter-form">
           <div class="filter-row">
             <div class="filter-group">
@@ -49,7 +47,27 @@
               <input type="date" id="fechaHasta" name="fechaHasta" value="<%= request.getParameter("fechaHasta") != null ? request.getParameter("fechaHasta") : "" %>">
             </div>
             <div class="filter-actions">
-              <button type="submit" class="btn-filter">🔍 Filtrar</button>
+              <button type="submit" class="btn-filter">🔍 Filtrar por Fecha</button>
+              <a href="consultarMateriales" class="btn-clear">🗑️ Limpiar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Filtro de préstamos -->
+      <div class="filter-container">
+        <h3>📚 Filtrar por Cantidad de Préstamos</h3>
+        <form method="get" action="consultarMateriales" class="prestamos-filter-form">
+          <div class="filter-row">
+            <div class="filter-group">
+              <label for="prestamosMinimos">Préstamos Mínimos:</label>
+              <input type="number" id="prestamosMinimos" name="prestamosMinimos" 
+                     min="0" step="1" 
+                     value="<%= request.getParameter("prestamosMinimos") != null ? request.getParameter("prestamosMinimos") : "" %>"
+                     placeholder="Ej: 5">
+            </div>
+            <div class="filter-actions">
+              <button type="submit" class="btn-filter">📚 Filtrar por Préstamos</button>
               <a href="consultarMateriales" class="btn-clear">🗑️ Limpiar</a>
             </div>
           </div>

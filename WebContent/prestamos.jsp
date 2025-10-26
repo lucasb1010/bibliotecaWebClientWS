@@ -15,6 +15,7 @@
           <a href="agregarMaterial">Agregar Material</a>
           <a href="agregarPrestamo">Agregar Préstamo</a>
           <a href="listarPrestamos">Ver Préstamos</a>
+          <a href="prestamosPorZona">📊 Préstamos por Zona</a>
           <a id="logout" href="logout">Cerrar Sesión</a>
         </div>
         
@@ -70,6 +71,7 @@
                     <button type="submit" class="btn btn-warning">Marcar como Devuelto</button>
                   </form>
                 <% } %>
+                <a href="actualizarPrestamo?lectorCorreo=<%= lectorCorreo %>&bibliotecarioCorreo=<%= bibliotecarioCorreo %>&materialId=<%= materialId %>" class="btn btn-info">Actualizar</a>
               </div>
             </li>
       <%

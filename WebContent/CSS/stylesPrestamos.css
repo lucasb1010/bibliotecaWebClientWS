@@ -1,0 +1,119 @@
+.container { 
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--crema);
+    border-radius: 10px;
+    box-shadow: 6px 4px 6px 4px rgba(0, 0, 0, 0.1); 
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--verdeOscuro);
+    font-size: var(--tamaño-letra-título-grande);
+}
+
+.navigation { 
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.navigation a {
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 7px;
+    display: inline-block;
+}
+
+.navigation a:hover {
+    background-color: var(--verdeOscuro);
+    color: var(--crema);
+}
+
+#logout {
+    color: var(--rojoOscuro);
+}
+
+#logout:hover {
+    background-color: var(--rojoOscuro);
+    color: var(--crema);
+}
+
+.error {
+    background-color: var(--rojoClaro);
+    color: var(--rojoOscuro);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid var(--rojoOscuro);
+}
+
+ul { list-style: none; padding-left: 0; }
+li { background: #f8f9fa; margin-bottom: 10px; padding: 12px 14px; border-radius: 6px; }
+.empty {
+    color: var(--grisOscuro);
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    font-size: var(--tamaño-letra-título-chico);
+}
+
+/* Estilos para préstamos con botones */
+.prestamo-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background: #f8f9fa; 
+    margin-bottom: 10px; 
+    padding: 15px; 
+    border-radius: 8px; 
+    border-left: 4px solid var(--verdeOscuro);
+}
+.prestamo-info { flex: 1; }
+.prestamo-actions { display: flex; gap: 8px; }
+.btn { 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 12px; 
+    font-weight: 500; 
+    transition: all 0.3s ease;
+    color: var(--crema); 
+}
+.btn-success { 
+    background: var(--verdeOscuro); 
+}
+.btn-success:hover { 
+    background: var(--verdeOscuro--hover); 
+}
+.btn-warning { 
+    background: var(--rojoOscuro);
+}
+.btn-warning:hover { 
+    background: var(--rojoClaro);
+}
+.btn-info { 
+    background: var(--grisOscuro);
+}
+.btn-info:hover { 
+    background: var(--grisClaro); 
+}
+
+@media (max-width: 768px) {
+    .container { margin: 10px; padding: 16px; }
+    .navigation { display: flex; flex-direction: column; gap: 8px; }
+    .prestamo-item { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center; 
+    }
+    .prestamo-actions { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+}

@@ -18,6 +18,7 @@
                 <a href="consultarMateriales" class="nav-link">📚 Ver Materiales</a>
                 <a href="agregarMaterial" class="nav-link">➕ Agregar Material</a>
                 <a href="listarPrestamos" class="nav-link">📋 Ver Préstamos</a>
+                <a href="prestamosPorZona" class="nav-link">📊 Préstamos por Zona</a>
                 <a id="logout" href="logout" class="nav-link">🚪 Cerrar Sesión</a>
             </nav>
         </header>
